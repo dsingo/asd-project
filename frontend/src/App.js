@@ -7,7 +7,7 @@ function App() {
   return (
     <Router>
       <Home path="/" />
-      <AddCard path="/card/add" />
+      <AddCard path="card/add" />
     </Router>
   );
 }
