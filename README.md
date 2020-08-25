@@ -9,3 +9,5 @@ Ensure that npm is installed. Navigate into the frontend directory and use the f
 npm install
 npm start
 ```
+
+Just a test of git committing/pushing, disregard this.
