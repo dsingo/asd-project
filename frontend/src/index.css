@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.faq {
+	width: 100%;
+	max-width: 768px;
+	margin: 0 auto;
+  padding: 15px;
+  font-size: 30px;
+}
