@@ -5,6 +5,9 @@ import AddCard from './pages/AddCard'
 import { Router } from '@reach/router'
 
 function App() {
+
+
+
   return (
     <Router>
       <Home path="/" />
@@ -15,3 +18,4 @@ function App() {
 }
 
 export default App;
+

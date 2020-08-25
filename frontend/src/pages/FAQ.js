@@ -3,12 +3,12 @@ import React from 'react';
 export default () => (
 
 
-    <div className="FAQ">
-        <h1>FAQ </h1>
+    <div className="faq">
+        <h1>Our FAQ </h1>
         <ul>
-            <li>Instagram</li>
-            <li>WhatsApp</li>
-            <li>Oculus</li>
+            <li>How to use an Opal Card?</li>
+            <li>How do I top up my Opal Card?</li>
+            <li>How do I replace my Opal Card?</li>
         </ul>
     </div>
 
