@@ -1,25 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Home from './pages/Home';
+import AddCard from './pages/AddCard'
+import { Router } from '@reach/router'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          im at peace
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Git Gud at React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Home path="/" />
+      <AddCard path="/card/add" />
+    </Router>
   );
 }
 
