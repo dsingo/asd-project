@@ -6,8 +6,7 @@ phases:
       nodejs: 12
 
   pre_build:
-    commands:      
-      - sudo pip install --upgrade awscli
+    commands:
       - aws --version
       - cd backend/
       - sudo pip install chalice
