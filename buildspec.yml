@@ -2,7 +2,20 @@ version: 0.2
 phases:
   install:
     runtime-versions:
+      python: 3.7
       nodejs: 12
+  api_up:
+    commands:
+      - sudo pip install --upgrade awscli
+      - aws --version
+      - cd backend/
+      - sudo pip install chalice
+      - sudo pip install -r requirements.txt
+      - chalice package /tmp/packaged
+      - aws cloudformation package --template-file
+          tmp/packaged/sam.json --s3-bucket $LAMBDA_S3_BUCKET
+          --output-template-file transformed.yaml
+      - cd ..
   pre_build:
     commands:
       - cd frontend/
@@ -16,3 +29,9 @@ artifacts:
     - "**/*"
   discard-paths: no
   base-directory: frontend/build/
+
+  secondary-artifacts:
+    transformedCF:
+      base-directory: backend/
+      files:
+        - transformed.yaml
