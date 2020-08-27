@@ -5,9 +5,12 @@ const ViewCard = ({ id }) => {
     const { state:cards } = useContext(CardsContext);
     const card = cards[id];
 
+
+    const error = typeof card === 'undefined';
+
     return (
         <>
-            {card.nickname}
+            {error ? 'Card not found' : card.nickname}
         </>
     )
 }
