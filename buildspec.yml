@@ -4,24 +4,26 @@ phases:
     runtime-versions:
       python: 3.7
       nodejs: 12
-  api_up:
-    commands:
+
+  pre_build:
+    commands:      
       - sudo pip install --upgrade awscli
       - aws --version
       - cd backend/
       - sudo pip install chalice
       - sudo pip install -r requirements.txt
+      - cd ..
+      - cd frontend/
+      - npm install
+      - cd ..
+  build:
+    commands:
+      - cd backend/
       - chalice package /tmp/packaged
       - aws cloudformation package --template-file
           tmp/packaged/sam.json --s3-bucket $LAMBDA_S3_BUCKET
           --output-template-file transformed.yaml
-      - cd ..
-  pre_build:
-    commands:
-      - cd frontend/
-      - npm install
-  build:
-    commands:
+      - cd ../frontend
       - npm run test:nowatch
       - npm run build
 artifacts:
