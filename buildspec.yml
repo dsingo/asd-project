@@ -9,8 +9,8 @@ phases:
     commands:
       - aws --version
       - cd backend/
-      - sudo pip install chalice
-      - sudo pip install -r requirements.txt
+      - pip install chalice
+      - pip install -r requirements.txt
       - cd ..
       - cd frontend/
       - npm install
