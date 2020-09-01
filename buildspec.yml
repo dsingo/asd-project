@@ -3,9 +3,12 @@ phases:
   install:
     runtime-versions:
       python: 3.7
+
+  pre-build:
+    - cd frontend/
+    - npm install
   build:
     commands:
-      - cd frontend/
       - npm run test:nowatch
       - npm run build
 artifacts:
