@@ -1,7 +1,18 @@
 import React, { useReducer, useMemo } from 'react';
 import CardReducer from '../reducers/CardReducer';
 
-const cards = [];
+const cards = [
+      {
+        type: "Adult",
+        balance: 15.000,
+        nickname: "David"
+      },
+      {
+        type: "Child",
+        balance: 20.000,
+        nickname: "Andrew"
+      },
+    ];
 
 const CardsContext = React.createContext();
 
