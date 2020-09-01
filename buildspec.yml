@@ -16,9 +16,3 @@ artifacts:
     - "**/*"
   discard-paths: no
   base-directory: frontend/build/
-
-  secondary-artifacts:
-    transformedCF:
-      base-directory: backend/
-      files:
-        - transformed.yaml
