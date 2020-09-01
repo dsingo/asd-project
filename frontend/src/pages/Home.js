@@ -12,7 +12,7 @@ export default () => {
 
   return (
     <CenteredViewport>
-      <h1>View your cards</h1>
+      <h1>View your cards now!</h1>
       {cards.map( (card, index) => (
         <CardListItem card={card} key={index} />
       ))}
