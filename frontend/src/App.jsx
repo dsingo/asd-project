@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import "./App.scss";
 import { Login, Register } from "./components/login/index";
 

@@ -1,0 +1,21 @@
+{
+  "name": "epic-asd",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "mongoose": "^5.10.5",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1"
+  }
+}
