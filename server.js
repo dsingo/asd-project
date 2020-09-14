@@ -1,23 +1,22 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const connectDB = require('./config/db')
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
 //Connect Database
 connectDB();
+
+//Init Middleware
+app.use(express.json({ extended: false }));
 
 app.get('/', (req, res) => {
   res.send('API Running');
 });
 
 // Define routes 
-app.use('/users', require('./routes/api/User'));
-app.use('/auth', require('./routes/api/Auth'));
-app.use('/profile', require('./routes/api/Profile'));
+app.use('/user', require('./routes/api/user'));
+app.use('/auth', require('./routes/api/auth'));
+app.use('/profile', require('./routes/api/profile'));
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
