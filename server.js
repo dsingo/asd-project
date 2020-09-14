@@ -15,4 +15,7 @@ app.get('/', (req, res) => {
   res.send('API Running');
 });
 
+// Define routes 
+app.use('/users', require('./routes/api/users'))
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
