@@ -1,7 +1,7 @@
 import React from "react";
 import loginImg from "../../Images/Login.png";
 
-export class Login extends React.Component {
+class Login extends React.Component {
   render() {
     return (
       <div className="base-container" ref={this.props.containerRef}>
@@ -30,3 +30,5 @@ export class Login extends React.Component {
     );
   }
 }
+
+export default Login;
