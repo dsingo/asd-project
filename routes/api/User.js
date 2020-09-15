@@ -13,7 +13,6 @@ require("dotenv").config();
 router.post(
   "/",
   [
-    check("name", "Name is required").not().isEmpty(),
     check("email", "Please include a valid email").isEmail(),
     check(
       "password",
@@ -26,7 +25,7 @@ router.post(
         return res.status(400).json({ errors: error.array() });
     }
 
-    const { name, email, password } = req.body
+    const { email, password } = req.body
 
     try {
         // See if user exists
@@ -37,7 +36,6 @@ router.post(
         }
 
         user = new User({
-            name,
             email,
             password
         })

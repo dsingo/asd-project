@@ -4,8 +4,9 @@ import loginImg from "../../Images/Login.png";
 import { setAlert } from '../../actions/alert';
 import "./style.scss";
 import PropTypes from 'prop-types';
+import { register } from '../../actions/auth'
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -21,7 +22,7 @@ const Register = ({ setAlert }) => {
     if (password !== password2) {
       setAlert('Passwords do not match', 'danger');
     } else {
-      console.log(formData);
+      register({ email, password });
     }
   }
 
@@ -71,8 +72,8 @@ const Register = ({ setAlert }) => {
                 placeholder="Please confirm your password"
                 value={password2}
                 onChange={ e => onChange(e) }
-                minLength='6'
                 required
+                minLength='6'
               />
             </div>
           </div>
@@ -88,7 +89,11 @@ const Register = ({ setAlert }) => {
 };
 
 Register.propTypes = {
-  setAlert: PropTypes.func.isRequired
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired
 }
 
-export default connect(null, { setAlert })(Register);
+export default connect(
+  null, 
+  { setAlert, register }
+)(Register);
