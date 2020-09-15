@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
-import bg from "../../Images/Home-Background.jpg";
+import React from "react";
 import "./Home.scss"
+import { Link } from 'react-router-dom';
 
 const Home = () => (
   <div className="landing">
@@ -8,12 +8,9 @@ const Home = () => (
       <div className="landing-inner">
         <h1 className="x-large">Opal Manager</h1>
         <div>
-          <a href="register.html" className="btn btn-primary">
-            Register
-          </a>
-          <a href="login.html" className="btn btn-secondary">
-            Login
-          </a>
+          <Link to='/login' className="btn btn-primary">
+            Login/Register
+          </Link>
         </div>
       </div>
     </div>

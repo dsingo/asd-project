@@ -3,17 +3,16 @@ import "./App.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Home from "./components/layout/Home";
-import Landing from "./components/layout/Landing"
+import Landing from "./components/layout/Landing";
 
 const App = () => (
   <Router>
     <Fragment>
       <Navbar />
-      <Route exact path='/' component={Home}/>
+      <Route exact path="/" component={Home} />
       <section className="container">
         <Switch>
-          <Route exact path="/register" component={Landing}/>
-          <Route exact path="/login" component={Landing}/>
+          <Route exact path="/login" component={Landing} />
         </Switch>
       </section>
     </Fragment>

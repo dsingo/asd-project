@@ -1,7 +1,7 @@
 import React from "react";
 import "./Landing.scss";
-import Login from "../login/login"
-import Register from "../login/register"
+import Login from "../login/login";
+import Register from "../login/register";
 
 class Landing extends React.Component {
   constructor(props) {
@@ -33,6 +33,7 @@ class Landing extends React.Component {
     const { isLogginActive } = this.state;
     const current = isLogginActive ? "Register" : "Login";
     const currentActive = isLogginActive ? "login" : "register";
+    //console.log(currentActive);
     return (
       <div className="App">
         <div className="login">
