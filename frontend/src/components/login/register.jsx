@@ -5,8 +5,9 @@ import { setAlert } from '../../actions/alert';
 import "./style.scss";
 import PropTypes from 'prop-types';
 import { register } from '../../actions/auth'
+import { Redirect } from 'react-router-dom';
 
-const Register = ({ setAlert, register }) => {
+const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -24,6 +25,10 @@ const Register = ({ setAlert, register }) => {
     } else {
       register({ email, password });
     }
+  }
+
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />
   }
 
   return (
@@ -90,10 +95,15 @@ const Register = ({ setAlert, register }) => {
 
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
-  register: PropTypes.func.isRequired
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
 }
 
+const mapStateToProps = state => ({ 
+  isAuthenticated: state.auth.isAuthenticated
+});
+
 export default connect(
-  null, 
+  mapStateToProps, 
   { setAlert, register }
 )(Register);
