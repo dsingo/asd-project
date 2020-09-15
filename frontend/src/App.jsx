@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 import "./App.scss";
-//import Landing from "./components/layout/Landing";
-//import Navbar from "./components/layout/Navbar";
+import Landing from "./components/layout/Landing";
+import Navbar from "./components/layout/Navbar";
 
 const App = () => (
   <Fragment>
-    
-     
+    <Navbar/>
+    <Landing />
   </Fragment>
 );
 

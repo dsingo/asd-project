@@ -3,6 +3,13 @@ import "./Landing.scss";
 import { Login, Register } from "../../components/login/index";
 
 class Landing extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLogginActive: true
+    };
+  }
+  
   componentDidMount() {
     //Add .right by default
     this.rightSide.classList.add("right");
