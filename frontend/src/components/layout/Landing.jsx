@@ -33,7 +33,6 @@ class Landing extends React.Component {
     const { isLogginActive } = this.state;
     const current = isLogginActive ? "Register" : "Login";
     const currentActive = isLogginActive ? "login" : "register";
-    //console.log(currentActive);
     return (
       <div className="App">
         <div className="login">
