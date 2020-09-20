@@ -34,8 +34,8 @@ const App = () => {
             <Alert />
             <Switch>
               <Route exact path="/login" component={Landing} />
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              <PrivateRoute exact path="/editemail" component={EditEmail} />
+              <Route exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/editemail" component={EditEmail} />
             </Switch>
           </section>
         </Fragment>

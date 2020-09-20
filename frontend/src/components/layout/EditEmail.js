@@ -4,15 +4,15 @@ import img from '../../Images/Email-Icon.png'
 
 const EditEmail = () => {
   return (
-    <div className="login">
-      <div className="container">
-        <form className="base-container">
-          <div className="header">Change your email</div>
+    <div className="main">
+      <div className="rect">
+        <form className="base-rect">
+          <div className="heading">Change your email</div>
           <img className="icon" src={img} alt="Colourful email icon" />
           <div className="content">
             <div className="form">
               <div className="form-group">
-                <input
+                <input className="input"
                   type="email"
                   name="email"
                   placeholder="Please enter your updated email"

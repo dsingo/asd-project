@@ -32,12 +32,12 @@ const Login = ({ login, isAuthenticated }) => {
         <div className="header">Login</div>
         <div className="content">
           <div className="image">
-            <img src={loginImg} alt="Register Form Icon" />
+            <img className="image" src={loginImg} alt="Register Form Icon" />
           </div>
           <div className="form">
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input
+              <input className="input"
                 type="email"
                 name="email"
                 placeholder="Please enter your email address"
@@ -48,7 +48,7 @@ const Login = ({ login, isAuthenticated }) => {
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input
+              <input className="input"
                 type="password"
                 name="password"
                 placeholder="Please enter your password"

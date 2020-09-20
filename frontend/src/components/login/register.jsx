@@ -45,7 +45,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               <label htmlFor="email">
                 Email <span>*</span>
               </label>
-              <input
+              <input className="input"
                 type="text"
                 name="email"
                 placeholder="Please enter your email address"
@@ -58,7 +58,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               <label htmlFor="password">
                 Password <span>*</span>
               </label>
-              <input
+              <input className="input"
                 type="password"
                 name="password"
                 placeholder="Please enter your password"
@@ -72,7 +72,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               <label htmlFor="password">
                 Confirm Password <span>*</span>
               </label>
-              <input
+              <input className="input"
                 type="password"
                 name="password2"
                 placeholder="Please confirm your password"

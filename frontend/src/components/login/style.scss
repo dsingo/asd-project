@@ -18,10 +18,6 @@
       width: 8em;
       margin-left: auto;
       margin-right: auto;
-      img {
-        width: 100%;
-        height: 100%;
-      }
     }
 
     .form {
@@ -45,7 +41,7 @@
           margin-bottom: 5px;
         }
 
-        input {
+        .input {
           padding-left: 5px;
           min-width: 18em;
           height: 37px;
@@ -63,6 +59,7 @@
 
           &:focus {
             outline: none;
+            box-shadow: 0px 0px 14px 0.3px #00000096
           }
         }
       }
