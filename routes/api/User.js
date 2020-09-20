@@ -4,7 +4,6 @@ const { check, validationResult } = require("express-validator");
 const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const auth = require('../../middleware/auth');
 
 require("dotenv").config();
 
@@ -69,18 +68,5 @@ router.post(
     }
   }
 );
-
-// @route   DELETE api/user
-// @desc    Delete user
-// @access  Private
-router.delete('/', auth, async (req, res) => {
-  try {// Remove user
-      await User.findOneAndDelete({ _id: req.user.id });
-      res.json({  msg: 'Account has been deleted succesfully' });
-  } catch (err) {
-      console.error(err.message);
-      res.status(500).send('Server Error');
-  }
-})
 
 module.exports = router;

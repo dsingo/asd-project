@@ -37,36 +37,13 @@
 .bt2 {
     position: relative;
     top: 190px;
-    left: 26.8%;
+    left: 27%;
 }
 
 .button:hover {
     box-shadow: 0px 0px 14px 0.3px #00000096;
 }
   
-.delete:focus,
 .button:focus {
     outline: none;
-}
-
-.delete {
-    position: relative;
-    top: 260px;
-    left: 11.5%;
-    color: white;
-    border-radius: 5px;
-    background-color: #dc3545;
-    border: 1px solid #dc3545;
-    padding: 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px;
-    cursor: pointer;
-    transition: all 250ms ease-in-out;
-}
-
-.delete:hover {
-    box-shadow: 0px 0px 14px 0.3px #dc3546cc;
 }

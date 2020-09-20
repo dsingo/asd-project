@@ -17,5 +17,6 @@ app.get('/', (req, res) => {
 // Define routes 
 app.use('/user', require('./routes/api/user'));
 app.use('/auth', require('./routes/api/auth'));
+app.use('/profile', require('./routes/api/profile'));
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
