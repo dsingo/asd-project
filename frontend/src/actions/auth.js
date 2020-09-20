@@ -6,7 +6,9 @@ import {
     AUTH_ERROR, 
     LOGIN_SUCCESS, 
     LOGIN_FAIL,
-    LOGOUT
+    LOGOUT,
+    ACCOUNT_DELETED,
+    USER_ERROR
 } from './types';
 import { setAlert } from './alert';
 import setAuthToken from '../utils/setAuthToken'
@@ -96,6 +98,25 @@ export const login = ( email, password ) => async dispatch => {
         });
     }
 };
+
+//Delete account
+export const deleteAccount = () => async dispatch => {
+    if (window.confirm('Are you sure you want to delete your account? This can NOT be undone.')) {
+        try {
+            const res = await axios.delete('/user');
+
+            dispatch({  type: ACCOUNT_DELETED });
+
+            dispatch(setAlert('You account has been deleted successfully.', 'success'));
+        } catch (err) {
+            dispatch({ 
+                type: USER_ERROR, 
+                payload: { msg: err.response.statusText, status: err.response.status 
+                }
+            });
+        }
+    }
+}
 
 // Logout / Clear profile
 export const logout = () => dispatch => {
