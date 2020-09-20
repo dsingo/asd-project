@@ -103,7 +103,7 @@ export const login = ( email, password ) => async dispatch => {
 export const deleteAccount = () => async dispatch => {
     if (window.confirm('Are you sure you want to delete your account? This can NOT be undone.')) {
         try {
-            const res = await axios.delete('/user');
+            await axios.delete('/user');
 
             dispatch({  type: ACCOUNT_DELETED });
 
