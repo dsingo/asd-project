@@ -83,4 +83,68 @@ router.delete('/', auth, async (req, res) => {
   }
 })
 
+// @route   Update api/users
+// @desc    Update email
+// @access  private
+router.put(
+  "/updateemail",
+  [
+    check("email", "Please include a valid email").isEmail(),
+  ],
+  auth, async (req, res) => {
+    try {
+      const user = await User.findOne({ _id: req.user.id });
+      
+      user.email = req.body.email;
+
+      await User.findOneAndUpdate({ _id: req.user.id }, user);
+
+      res.json({  msg: 'Email has been updated successfully' });
+      
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  }
+);
+
+// @route   Update api/users
+// @desc    Update password
+// @access  private
+router.put(
+  "/updatepassword",
+  [
+    check(
+      "password",
+      "Please enter a password with 6 or more characters"
+    ).isLength({ min: 6 }),
+  ],
+  auth, async (req, res) => {
+    try {
+      const user = await User.findOne({ _id: req.user.id });
+
+      const { oldPassword, newPassword } = req.body;
+      
+      // Compare old passwords
+      const isMatch = await bcrypt.compare(oldPassword, user.password);
+
+      if (!isMatch) {
+        return res.status(400).json({ errors: [{ msg: "Old password is incorrect" }] });
+      }
+
+      // Encrypt password
+      const salt = await bcrypt.genSalt(10);
+      user.password = await bcrypt.hash(newPassword, salt);
+
+      await User.findOneAndUpdate({ _id: req.user.id }, user);
+
+      res.json({  msg: 'Password has been updated successfully' });
+      
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  }
+);
+
 module.exports = router;

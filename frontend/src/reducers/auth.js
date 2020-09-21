@@ -6,7 +6,8 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGOUT, 
-    ACCOUNT_DELETED
+    ACCOUNT_DELETED,
+    EMAIL_UPDATED
 } from '../actions/types';
 
 const initialState = {
@@ -20,6 +21,7 @@ export default function(state = initialState, action) {
     const { type, payload } = action;
 
     switch(type) {
+        case EMAIL_UPDATED:
         case USER_LOADED:
             return {
                 ...state,
