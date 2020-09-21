@@ -12,7 +12,7 @@ import {
     EMAIL_UPDATED
 } from './types';
 import { setAlert } from './alert';
-import setAuthToken from '../utils/setAuthToken'
+import setAuthToken from '../utils/setAuthToken';
 
 // Load user
 export const loadUser = () => async dispatch => {
@@ -125,8 +125,7 @@ export const updateEmail = ({ email }) => async dispatch => {
         const res = await axios.put('/user/updateemail', { email: email });
 
         dispatch ({
-            type: EMAIL_UPDATED,
-            payload: res.data
+            type: LOGOUT
         });
 
         dispatch(setAlert('Your email has been updated successfully', 'success'));
