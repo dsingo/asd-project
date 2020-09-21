@@ -9,7 +9,6 @@ import {
     LOGOUT,
     ACCOUNT_DELETED,
     USER_ERROR,
-    EMAIL_UPDATED
 } from './types';
 import { setAlert } from './alert';
 import setAuthToken from '../utils/setAuthToken';
@@ -122,7 +121,7 @@ export const deleteAccount = () => async dispatch => {
 // Update Email
 export const updateEmail = ({ email }) => async dispatch => {
     try {
-        const res = await axios.put('/user/updateemail', { email: email });
+        await axios.put('/user/updateemail', { email: email });
 
         dispatch ({
             type: LOGOUT
