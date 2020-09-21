@@ -8,7 +8,8 @@ import {
     LOGIN_FAIL,
     LOGOUT,
     ACCOUNT_DELETED,
-    USER_ERROR
+    USER_ERROR,
+    EMAIL_UPDATED
 } from './types';
 import { setAlert } from './alert';
 import setAuthToken from '../utils/setAuthToken'
@@ -115,6 +116,27 @@ export const deleteAccount = () => async dispatch => {
                 }
             });
         }
+    }
+}
+
+// Update Email
+export const updateEmail = ({ email }) => async dispatch => {
+    try {
+        const res = await axios.put('/user/updateemail', { email: email });
+
+        dispatch ({
+            type: EMAIL_UPDATED,
+            payload: res.data
+        });
+
+        dispatch(setAlert('Your email has been updated successfully', 'success'));
+
+    } catch (err) {
+        dispatch({ 
+            type: USER_ERROR, 
+            payload: { msg: err.response.statusText, status: err.response.status 
+            }
+        });
     }
 }
 
