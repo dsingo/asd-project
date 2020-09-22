@@ -1,4 +1,4 @@
-const CardReducer = (state, action) => {
+const cards = (state, action) => {
     switch (action.type) {
         case 'ADD_CARD':
             return [...state, action.card]
@@ -6,4 +6,4 @@ const CardReducer = (state, action) => {
     }
 }
 
-export default CardReducer;
+export default cards;
