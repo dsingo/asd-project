@@ -7,7 +7,9 @@ import {
     LOGIN_FAIL,
     LOGOUT, 
     ACCOUNT_DELETED,
-    EMAIL_UPDATED
+    EMAIL_UPDATED,
+    PASSWORD_UPDATED,
+    PASSWORD_ERROR
 } from '../actions/types';
 
 const initialState = {
@@ -23,6 +25,7 @@ export default function(state = initialState, action) {
     switch(type) {
         case EMAIL_UPDATED:
         case USER_LOADED:
+        case PASSWORD_UPDATED:
             return {
                 ...state,
                 isAuthenticated: true,
@@ -49,6 +52,13 @@ export default function(state = initialState, action) {
                 token: null,
                 isAuthenticated: false,
                 loading: false
+            }
+        case PASSWORD_ERROR:
+            return {
+                ...state,
+                isAuthenticated: true,
+                loading: false,
+                user: payload
             }
         default:
             return state;

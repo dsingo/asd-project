@@ -1,39 +1,41 @@
 import React, { useState } from "react";
 import "./EditEmail.scss";
-import img from '../../Images/Email-Icon.png';
-import { updateEmail } from '../../actions/auth';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import img from "../../Images/Email-Icon.png";
+import { updateEmail } from "../../actions/auth";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 const EditEmail = ({ updateEmail }) => {
   const [formData, setFormData] = useState({
-    email: ''
+    email: "",
   });
 
   const { email } = formData;
 
-  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     updateEmail({ email });
-  }
+  };
 
   return (
     <div className="main">
       <div className="rect">
-        <form className="base-rect" onSubmit={ e => onSubmit(e) }>
+        <form className="base-rect" onSubmit={(e) => onSubmit(e)}>
           <div className="heading">Change your email</div>
           <img className="icon" src={img} alt="Colourful email icon" />
           <div className="content">
             <div className="form">
               <div className="form-group">
-                <input className="input"
+                <input
+                  className="input"
                   type="email"
                   name="email"
                   placeholder="Please enter your updated email"
                   value={email}
-                  onChange={ e => onChange(e) }
+                  onChange={(e) => onChange(e)}
                   required
                 />
               </div>
@@ -51,14 +53,9 @@ const EditEmail = ({ updateEmail }) => {
 };
 
 EditEmail.propTypes = {
-  updateEmail: PropTypes.func.isRequired
-}
+  updateEmail: PropTypes.func.isRequired,
+};
 
-const mapStateToProps = state => ({ 
-  
-});
+const mapStateToProps = (state) => ({});
 
-export default connect(
-  mapStateToProps, 
-  { updateEmail }
-)(EditEmail);
+export default connect(mapStateToProps, { updateEmail })(EditEmail);

@@ -17,3 +17,7 @@ export const ACCOUNT_DELETED = 'ACCOUNT_DELETED';
 export const USER_ERROR = 'USER_ERROR';
 
 export const EMAIL_UPDATED = 'EMAIL_UPDATED';
+
+export const PASSWORD_UPDATED = 'PASSWORD_UPDATED';
+
+export const PASSWORD_ERROR = 'PASSWORD_ERROR';

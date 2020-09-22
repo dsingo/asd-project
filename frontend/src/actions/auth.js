@@ -9,6 +9,7 @@ import {
     LOGOUT,
     ACCOUNT_DELETED,
     USER_ERROR,
+    PASSWORD_ERROR
 } from './types';
 import { setAlert } from './alert';
 import setAuthToken from '../utils/setAuthToken';
@@ -138,6 +139,26 @@ export const updateEmail = ({ email }) => async dispatch => {
     }
 }
 
+// Change password
+export const updatePassword = ({ oldPassword, password1 }) => async dispatch => {
+    
+    try {
+        await axios.put("/user/updatepassword", { oldPassword, password1 });
+
+        dispatch ({
+            type: LOGOUT
+        });
+
+        dispatch(setAlert('Your password has been updated successfully', 'success'));
+
+    } catch (err) {
+        dispatch({ 
+            type: PASSWORD_ERROR, 
+            payload: { msg: err.response.statusText, status: err.response.status 
+            }
+        });
+    }
+}
 // Logout / Clear profile
 export const logout = () => dispatch => {
     dispatch({ type: LOGOUT })

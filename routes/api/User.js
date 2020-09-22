@@ -115,7 +115,7 @@ router.put(
   "/updatepassword",
   [
     check(
-      "password",
+      "newPassword",
       "Please enter a password with 6 or more characters"
     ).isLength({ min: 6 }),
   ],
@@ -123,7 +123,7 @@ router.put(
     try {
       const user = await User.findOne({ _id: req.user.id });
 
-      const { oldPassword, newPassword } = req.body;
+      const { oldPassword, password1 } = req.body;
       
       // Compare old passwords
       const isMatch = await bcrypt.compare(oldPassword, user.password);
@@ -134,7 +134,7 @@ router.put(
 
       // Encrypt password
       const salt = await bcrypt.genSalt(10);
-      user.password = await bcrypt.hash(newPassword, salt);
+      user.password = await bcrypt.hash(password1, salt);
 
       await User.findOneAndUpdate({ _id: req.user.id }, user);
 

@@ -14,7 +14,7 @@ const Dashboard = ({
             <h1 className="title">Dashboard</h1>
             <img className="dashboard-icon" src={img} alt="Colourful dashboard icon" />
             <Link to="/editemail" className="button bt1" type="button" >Change Email</Link>
-            <button className="button bt2" type="button" >Change Password</button>
+            <Link to="/editpassword" className="button bt2" type="button" >Change Password</Link>
             <button className="delete" type="button" onClick={ () => deleteAccount() }>
                 <i class="fas fa-trash-alt"></i> Delete Account
             </button>
