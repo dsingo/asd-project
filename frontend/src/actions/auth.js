@@ -152,6 +152,12 @@ export const updatePassword = ({ oldPassword, password1 }) => async dispatch => 
         dispatch(setAlert('Your password has been updated successfully', 'success'));
 
     } catch (err) {
+        const errors = err.response.data.errors;
+
+        if (errors) {
+            errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
+        }
+        
         dispatch({ 
             type: PASSWORD_ERROR, 
             payload: { msg: err.response.statusText, status: err.response.status 
