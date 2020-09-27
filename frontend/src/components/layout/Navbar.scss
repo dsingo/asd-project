@@ -1,0 +1,54 @@
+$primary-color: #17a2b8;
+$dark-color: #343a40;
+$light-color: #f4f4f4;
+$danger-color: #dc3545;
+$success-color: #28a745;
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.9;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.navbar ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navbar a {
+  color: #fff;
+  padding: 0.45rem;
+  margin: 0 0.25rem;
+}
+
+.navbar a:hover {
+  color: #17a2b8;
+}
+
+.bg-dark {
+  background-color: #343a40;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #17a2b8;
+}
+
+ul {
+  list-style: none;
+}

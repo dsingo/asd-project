@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #17a2b8;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+// Navbar
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 2rem;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  border-bottom: solid 1px #17a2b8;
+  opacity: 0.9;
+
+  ul {
+    display: flex;
+  }
+
+  a {
+    color: #fff;
+    padding: 0.45rem;
+    margin: 0 0.25rem;
+
+    &:hover {
+      color: #17a2b8;
+    }
+  }
+}
+
+// Landing
+.landing {
+  position: relative;
+  background: url('./Images/Home-Background.jpg') no-repeat center center/cover;
+  height: 100vh;
+
+  &-inner {
+    color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.alert {
+  padding: 0.8rem;
+  margin: 1rem;
+  opacity: 0.9;
+  width: 30%;
+  border-radius: 10px;
+  background: #f4f4f4;
+  position: relative;
+  left: 410px;
+  top: 60px;
+  color: #333;
+}
+.alert.alert-primary {
+  background-color: #17a2b8;
+  color: #fff;
+}
+.alert.alert-dark {
+  background-color: #343a40;
+  color: #fff;
+}
+.alert.alert-success {
+  background-color: #28a745;
+  color: #fff;
+}
+.alert.alert-danger {
+  background-color: #dc3545;
+  color: #fff;
+}

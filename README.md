@@ -1,7 +1,6 @@
 # ASD Project
 
 Shaping up to be a transport card management app.
-App available here: http://prod-asdproject.s3-website-ap-southeast-2.amazonaws.com
 
 ## Running the react boilerplate
 

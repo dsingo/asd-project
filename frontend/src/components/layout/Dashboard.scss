@@ -1,0 +1,79 @@
+.title {
+    text-align: center;
+    position: relative;
+    top: 100px;
+}
+
+.dashboard-icon {
+    width: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 120px;
+}
+
+.button {
+    color: rgba(0, 0, 0, 0.795);
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ccc;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+}
+
+.bt1 {
+    position: relative;
+    top: 120px;
+    left: 42.5%;
+}
+
+.bt2 {
+    position: relative;
+    top: 190px;
+    left: 26.8%;
+}
+
+.button:hover {
+    box-shadow: 0px 0px 14px 0.3px #00000096;
+}
+  
+.delete:focus,
+.button:focus {
+    outline: none;
+}
+
+.delete {
+    position: relative;
+    top: 260px;
+    left: 11.5%;
+    color: white;
+    background-color: #dc3545;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.delete:hover {
+    background-color: #a8212f;
+}
+
+.delete:active {
+    background-color: #a8212f;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }

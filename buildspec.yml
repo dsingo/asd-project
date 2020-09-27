@@ -2,15 +2,13 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      python: 3.7
-
-  pre-build:
+      nodejs: 12
+  pre_build:
     commands:
       - cd frontend/
       - npm install
   build:
     commands:
-      - npm run test:nowatch
       - npm run build
 artifacts:
   files:
