@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from '@reach/router';
-import CardsContext from '../contexts/CardsContext';
+// import CardsContext from '../../co';
 
 export default () => {
 
-  const { dispatch } = useContext(CardsContext);
+  // const { dispatch } = useContext(CardsContext);
   const navigate = useNavigate();
 
   const [card, setCard] = useState({
@@ -43,7 +43,7 @@ export default () => {
       type: 'ADD_CARD',
       card: card
     }
-    dispatch(action);
+    // dispatch(action);
     navigate('/');
   }
 
