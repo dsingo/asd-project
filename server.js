@@ -1,6 +1,8 @@
 const express = require('express');
 const connectDB = require('./config/db')
 const path = require('path')
+const userRoutes = require('./routes/api/user');
+const authRoutes = require('./routes/api/auth');
 
 const app = express();
 
@@ -11,8 +13,8 @@ connectDB();
 app.use(express.json({ extended: false }));
 
 // Define routes 
-app.use('/user', require('./routes/api/user'));
-app.use('/auth', require('./routes/api/auth'));
+app.use('/user', userRoutes);
+app.use('/auth', authRoutes);
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
