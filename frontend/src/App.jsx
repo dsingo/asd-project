@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import "./App.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
-import Home from "./components/layout/Home";
+import Home from "./components/layout/Home.jsx";
 import Landing from "./components/layout/Landing";
 import Alert from "./components/layout/alert";
 import { loadUser } from "./actions/auth";
