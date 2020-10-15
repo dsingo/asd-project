@@ -170,6 +170,10 @@ export const addNewCard = () => async dispatch => {
     
 }
 
+export const viewAllCards = () => async dispatch => {
+    
+}
+
 
 // Logout / Clear profile
 export const logout = () => dispatch => {
