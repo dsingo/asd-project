@@ -26,7 +26,7 @@ const AddCard = ({ addNewCard }) => {
       cvv: cardcvv,
       name: cardname,
     };
-    updateCard({ card });
+    addNewCard({ card });
   };
 
   return (
@@ -62,19 +62,19 @@ const AddCard = ({ addNewCard }) => {
                 />
                 <input
                   className="input"
-                  type="email"
-                  name="email"
-                  placeholder="Please enter your updated email"
-                  value={cardnumber}
+                  type="password"
+                  name="cardcvv"
+                  placeholder="Please enter your card CVV"
+                  value={cardcvv}
                   onChange={(e) => onChange(e)}
                   required
                 />
                 <input
                   className="input"
-                  type="email"
-                  name="email"
-                  placeholder="Please enter your updated email"
-                  value={cardnumber}
+                  type="string"
+                  name="cardname"
+                  placeholder="Please enter the name of the card's owner"
+                  value={cardname}
                   onChange={(e) => onChange(e)}
                   required
                 />
