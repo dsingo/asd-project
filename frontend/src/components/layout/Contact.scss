@@ -1,0 +1,21 @@
+span {
+    color: red;
+}
+
+.image {
+    width: 8em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact {
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 45%;
+    z-index: 99;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 25%;
+}

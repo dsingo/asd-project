@@ -12,6 +12,7 @@ import PrivateRoute from './components/routing/PrivateRoute';
 import EditEmail from './components/layout/EditEmail';
 import EditPassword from './components/layout/EditPassword';
 import FAQ from './components/layout/FAQ';
+import Contact from './components/layout/Contact';
 
 //Redux
 import { Provider } from "react-redux";
@@ -40,6 +41,7 @@ const App = () => {
               <PrivateRoute exact path="/editemail" component={EditEmail} />
               <PrivateRoute exact path="/editpassword" component={EditPassword} />
               <Route exact path="/faq" component={FAQ} />
+              <Route exact path="/contactus" component={Contact} />
             </Switch>
           </section>
         </Fragment>
