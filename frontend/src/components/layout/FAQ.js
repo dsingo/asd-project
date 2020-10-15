@@ -2,7 +2,6 @@ import React from 'react';
 
 export default () => (
 
-
     <div className="faq">
         <h1>Frequently Asked Questions </h1>
         <ul>
@@ -11,6 +10,4 @@ export default () => (
             <li>How do I replace my Opal Card?</li>
         </ul>
     </div>
-
-
 )

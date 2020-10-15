@@ -11,6 +11,7 @@ import Dashboard from './components/layout/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
 import EditEmail from './components/layout/EditEmail';
 import EditPassword from './components/layout/EditPassword';
+import FAQ from './components/layout/FAQ';
 
 //Redux
 import { Provider } from "react-redux";
@@ -38,6 +39,7 @@ const App = () => {
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/editemail" component={EditEmail} />
               <PrivateRoute exact path="/editpassword" component={EditPassword} />
+              <Route exact path="/faq" component={FAQ} />
             </Switch>
           </section>
         </Fragment>
