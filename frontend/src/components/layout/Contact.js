@@ -32,7 +32,7 @@ const Contact = ({ setAlert }) => {
 
   return (
     <div className="contact">
-      <div className="rect">
+      <div className="contactrect">
         <form className="base-rect" onSubmit={(e) => onSubmit(e)}>
           <div className="heading">Contact Us</div>
           <div className="image">
@@ -69,7 +69,7 @@ const Contact = ({ setAlert }) => {
                   Message<span> *</span>
                 </label>
                 <input
-                  className="input"
+                  className="input message"
                   type="text"
                   name="message"
                   placeholder="Please enter a message"
