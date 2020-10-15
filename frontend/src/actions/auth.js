@@ -165,6 +165,12 @@ export const updatePassword = ({ oldPassword, password1 }) => async dispatch => 
         });
     }
 }
+
+export const addNewCard = () => async dispatch => {
+    
+}
+
+
 // Logout / Clear profile
 export const logout = () => dispatch => {
     dispatch({ type: LOGOUT })
