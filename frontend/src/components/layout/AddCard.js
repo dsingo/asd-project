@@ -4,80 +4,56 @@ import img from "../../Images/Card-Icon.png";
 import { addNewCard } from "../../actions/auth";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import Dropdown from "react-bootstrap/Dropdown";
 
 const AddCard = ({ addNewCard }) => {
   const [formData, setFormData] = useState({
-    cardnumber: 0000000000000000,
-    cardexpiry: new Date(),
-    cardcvv: 000,
-    cardname: "",
+    type: "",
   });
 
-  const { cardnumber, cardexpiry, cardcvv, cardname } = formData;
+  const { type } = formData;
 
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = (submission) =>
+    setFormData({ ...formData, type: submission });
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const card = {
-      number: cardnumber,
-      expiry: cardexpiry,
-      cvv: cardcvv,
-      name: cardname,
-    };
-    addNewCard({ card });
-  };
 
+    addNewCard({ type });
+  };
+  //Student refers to primary school/high school card
+  //Concession refers to university/TAFE card
   return (
     <div className="main">
       <div className="rect">
         <form className="base-rect" onSubmit={(e) => onSubmit(e)}>
           <div className="heading">Add a new credit/debit card</div>
-          <img
-            className="icon"
-            src={img}
-            alt="Outline rendering of credit card"
-          />
+          <img className="icon" src={img} alt="Outline rendering of card" />
           <div className="content">
             <div className="form">
               <div className="form-group">
-                <input
-                  className="input"
-                  type="string"
-                  name="cardnumber"
-                  placeholder="Please enter your card number"
-                  value={cardnumber}
-                  onChange={(e) => onChange(e)}
-                  required
-                />
-                <input
-                  className="input"
-                  type="date"
-                  name="cardexpiry"
-                  placeholder="Please enter your card expiry date"
-                  value={cardexpiry}
-                  onChange={(e) => onChange(e)}
-                  required
-                />
-                <input
-                  className="input"
-                  type="password"
-                  name="cardcvv"
-                  placeholder="Please enter your card CVV"
-                  value={cardcvv}
-                  onChange={(e) => onChange(e)}
-                  required
-                />
-                <input
-                  className="input"
-                  type="string"
-                  name="cardname"
-                  placeholder="Please enter the name of the card's owner"
-                  value={cardname}
-                  onChange={(e) => onChange(e)}
-                  required
-                />
+                <Dropdown>
+                  <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    Select Card Type
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item as="button" onClick={onChange("child")}>
+                      Child
+                    </Dropdown.Item>
+                    <Dropdown.Item as="button" onClick={onChange("student")}>
+                      Student
+                    </Dropdown.Item>
+                    <Dropdown.Item as="button" onClick={onChange("concession")}>
+                      Concession
+                    </Dropdown.Item>
+                    <Dropdown.Item as="button" onClick={onChange("adult")}>
+                      Adult
+                    </Dropdown.Item>
+                    <Dropdown.Item as="button" onClick={onChange("senior")}>
+                      Senior
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </div>
             </div>
           </div>

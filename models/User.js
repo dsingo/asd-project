@@ -10,9 +10,25 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  name: {
+    type: String,
+    required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
+  },
   date: {
     type: Date,
     default: Date.now,
+  },
+  cards: {
+    type: Array,
+    required: true,
+  },
+  trips: {
+    type: Array,
+    required: true,
   },
 });
 
