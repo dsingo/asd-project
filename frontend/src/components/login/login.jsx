@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from "react";
 import loginImg from "../../Images/Login.png";
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { login } from '../../actions/auth';
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { login } from "../../actions/auth";
 import { Redirect } from "react-router-dom"; //and link
 
 const Login = ({ login, isAuthenticated }) => {
@@ -15,7 +15,7 @@ const Login = ({ login, isAuthenticated }) => {
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    
+
   const onSubmit = async (e) => {
     e.preventDefault();
     login(email, password);
@@ -23,12 +23,12 @@ const Login = ({ login, isAuthenticated }) => {
 
   // Redirect if logged in
   if (isAuthenticated) {
-    return <Redirect to="/dashboard" />
+    return <Redirect to="/dashboard" />;
   }
 
   return (
     <Fragment>
-      <form className="base-container" onSubmit={ e => onSubmit(e) }>
+      <form className="base-container" onSubmit={(e) => onSubmit(e)}>
         <div className="header">Login</div>
         <div className="content">
           <div className="image">
@@ -37,24 +37,26 @@ const Login = ({ login, isAuthenticated }) => {
           <div className="form">
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input className="input"
+              <input
+                className="input"
                 type="email"
                 name="email"
                 placeholder="Please enter your email address"
                 value={email}
-                onChange={ e => onChange(e) }
+                onChange={(e) => onChange(e)}
                 required
               />
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input className="input"
+              <input
+                className="input"
                 type="password"
                 name="password"
                 placeholder="Please enter your password"
                 minLength="6"
                 value={password}
-                onChange={ e => onChange(e) }
+                onChange={(e) => onChange(e)}
                 required
               />
             </div>
@@ -72,11 +74,11 @@ const Login = ({ login, isAuthenticated }) => {
 
 Login.propTypes = {
   login: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({ 
-  isAuthenticated: state.auth.isAuthenticated
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
 });
 
 export default connect(mapStateToProps, { login })(Login);
