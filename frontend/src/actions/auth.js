@@ -166,7 +166,7 @@ export const updatePassword = ({ oldPassword, password1 }) => async dispatch => 
     }
 }
 
-export const addCard = () => async dispatch => {
+export const addNewCard = () => async dispatch => {
     
 }
 
