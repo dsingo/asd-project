@@ -13,6 +13,7 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 export const CARD_ADDED = "CARD_ADDED";
 export const CARDS_VIEWED = "CARDS_VIEWED";
 export const CARD_DELETED = "CARD_DELETED";
+export const CARD_ADDED_ERROR = "CARD_ADDED_ERROR"
 
 export const LOGOUT = "LOGOUT";
 

@@ -11,6 +11,7 @@ import {
   USER_ERROR,
   PASSWORD_ERROR,
   CARD_ADDED,
+  CARD_ADDED_ERROR
 } from "./types";
 import { setAlert } from "./alert";
 import setAuthToken from "../utils/setAuthToken";
@@ -169,18 +170,32 @@ export const updatePassword = ({ oldPassword, password1 }) => async (
   }
 };
 
-export const addNewCard = (card) => async (dispatch) => {
+export const addNewCard = (type) => async (dispatch) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
     },
   };
 
-  const body = JSON.stringify({card});
+  const body = JSON.stringify({ type });
 
   try {
-      const res = await axios.post("/card")
-  } catch (err) {}
+    const res = await axios.post("/card/add", { body });
+    dispatch({
+      type: CARD_ADDED,
+      payload: res.data,
+    });
+    dispatch(setAlert("You have added a new card!", "success"));
+    dispatch(loadUser());
+  } catch (err) {
+    const errors = err.response.data.errors;
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }dispatch({
+      type: CARD_ADDED_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
 };
 
 export const viewAllCards = () => async (dispatch) => {
