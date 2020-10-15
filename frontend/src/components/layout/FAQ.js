@@ -1,7 +1,7 @@
 import React from 'react';
+import "./FAQ.scss";
 
 export default () => (
-
     <div className="faq">
         <h1>Frequently Asked Questions </h1>
         <ul>

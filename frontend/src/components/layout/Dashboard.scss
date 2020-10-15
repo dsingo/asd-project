@@ -9,8 +9,11 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    position: relative;
-    top: 120px;
+    position: absolute;
+    top: 235px;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .button {
@@ -29,15 +32,19 @@
 }
 
 .bt1 {
-    position: relative;
-    top: 120px;
-    left: 42.5%;
+    position: absolute;
+    top: 340px;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .bt2 {
-    position: relative;
-    top: 190px;
-    left: 26.8%;
+    position: absolute;
+    top: 410px;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .button:hover {
@@ -50,9 +57,11 @@
 }
 
 .delete {
-    position: relative;
-    top: 260px;
-    left: 11.5%;
+    position: absolute;
+    top: 475px;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     color: white;
     background-color: #dc3545;
     padding: 15px;
