@@ -6,22 +6,28 @@ const CardSchema = new mongoose.Schema({
     required: true,
     unique: false,
   },
+  nickname: {
+    type: String,
+    required: true,
+    default: "My card",
+  },
   balance: {
     type: Number,
     required: true,
+    default: 0
   },
   type: {
     type: String,
-    required: true
+    required: true,
   },
   rate: {
-      type: String,
-      required: true
+    type: String,
+    required: true,
   },
   history: {
-      type: Array,
-      required: true
-  }
+    type: Array,
+    required: true,
+  },
 });
 
 module.exports = Card = mongoose.model("card", CardSchema);

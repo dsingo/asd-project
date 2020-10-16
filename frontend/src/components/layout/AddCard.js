@@ -1,77 +1,64 @@
-import React, { useState } from "react";
-import "./AddCard.scss";
-import img from "../../Images/Card-Icon.png";
-import { addNewCard } from "../../actions/auth";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import Dropdown from "react-bootstrap/Dropdown";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "@reach/router";
+// import CardsContext from '../../co';
 
-const AddCard = ({ addNewCard }) => {
-  const [formData, setFormData] = useState({
-    type: "",
+export default () => {
+  // const { dispatch } = useContext(CardsContext);
+  const navigate = useNavigate();
+
+  const [card, setCard] = useState({
+    nickname: "",
+    type: "Adult",
+    balance: 0,
   });
 
-  const { type } = formData;
+  const setNickname = (e) => {
+    const newNickname = e.target.value;
 
-  const onChange = (submission) =>
-    setFormData({ ...formData, type: submission });
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-
-    addNewCard({ type });
+    setCard({
+      ...card,
+      nickname: newNickname,
+    });
   };
-  //Student refers to primary school/high school card
-  //Concession refers to university/TAFE card
+
+  const setCardType = (e) => {
+    const newCardType = e.target.value;
+
+    setCard({
+      ...card,
+      type: newCardType,
+    });
+  };
+
+  const cardTypes = ["Adult", "Concession", "Child"];
+
+  const addCard = (e) => {
+    e.preventDefault();
+    const action = {
+      type: "ADD_CARD",
+      card: card,
+    };
+    // dispatch(action);
+    navigate("/");
+  };
+
   return (
-    <div className="main">
-      <div className="rect">
-        <form className="base-rect" onSubmit={(e) => onSubmit(e)}>
-          <div className="heading">Add a new credit/debit card</div>
-          <img className="icon" src={img} alt="Outline rendering of card" />
-          <div className="content">
-            <div className="form">
-              <div className="form-group">
-                <Dropdown>
-                  <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    Select Card Type
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu>
-                    <Dropdown.Item as="button" onClick={onChange("child")}>
-                      Child
-                    </Dropdown.Item>
-                    <Dropdown.Item as="button" onClick={onChange("student")}>
-                      Student
-                    </Dropdown.Item>
-                    <Dropdown.Item as="button" onClick={onChange("concession")}>
-                      Concession
-                    </Dropdown.Item>
-                    <Dropdown.Item as="button" onClick={onChange("adult")}>
-                      Adult
-                    </Dropdown.Item>
-                    <Dropdown.Item as="button" onClick={onChange("senior")}>
-                      Senior
-                    </Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </div>
-            </div>
-          </div>
-          <div className="footer">
-            <button type="submit" className="btn">
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+    <>
+      <form>
+        <label htmlFor="nickname">Card Nickname</label>
+        <input name="nickname" value={card.nickname} onChange={setNickname} />
+        <label htmlFor="type">Card Type</label>
+        <select value={card.type} onChange={setCardType}>
+          {cardTypes.map((type, index) => (
+            <option key={index} value={type}>
+              {type}
+            </option>
+          ))}
+        </select>
+        <button type="submit" onClick={addCard}>
+          Add New Card
+        </button>
+      </form>
+    </>
   );
 };
-
-AddCard.propTypes = {
-  addNewCard: PropTypes.func.isRequired,
-};
-
-const mapStateToProps = (state) => ({});
-
-export default connect(mapStateToProps, { addNewCard })(AddCard);
