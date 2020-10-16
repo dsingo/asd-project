@@ -3,6 +3,7 @@ const connectDB = require('./config/db')
 const path = require('path')
 const userRoutes = require('./routes/api/User');
 const authRoutes = require('./routes/api/auth');
+const cardRoutes = require('./routes/api/Cards')
 
 const app = express();
 
@@ -11,10 +12,18 @@ connectDB();
 
 //Init Middleware
 app.use(express.json({ extended: false }));
+app.use(function(req, res, next) {
+  process.env.NODE_ENV === 'development'
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "*");
+  res.header("Access-Control-Allow-Methods", "*");
+  next();
+});
 
 // Define routes 
 app.use('/user', userRoutes);
 app.use('/auth', authRoutes);
+app.use('/cards', cardRoutes)
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
