@@ -11,7 +11,7 @@ import {
   USER_ERROR,
   PASSWORD_ERROR,
   CARD_ADDED,
-  CARD_ADDED_ERROR
+  CARD_ADDED_ERROR,
 } from "./types";
 import { setAlert } from "./alert";
 import setAuthToken from "../utils/setAuthToken";
@@ -177,7 +177,7 @@ export const addNewCard = (type) => async (dispatch) => {
     },
   };
 
-  const body = JSON.stringify({ type });
+  const body = JSON.stringify({ type, nickname });
 
   try {
     const res = await axios.post("/card/add", { body });
@@ -191,7 +191,8 @@ export const addNewCard = (type) => async (dispatch) => {
     const errors = err.response.data.errors;
     if (errors) {
       errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
-    }dispatch({
+    }
+    dispatch({
       type: CARD_ADDED_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
     });
