@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import "./AddCard.scss"
 import { useNavigate } from "@reach/router";
 import { connect } from "mongoose";
 import { addNewCard } from "../../actions/cards";
