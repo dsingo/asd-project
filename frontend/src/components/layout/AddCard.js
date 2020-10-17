@@ -1,8 +1,11 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "@reach/router";
+import { connect } from "mongoose";
+import { addNewCard } from "../../actions/cards";
+import { setAlert } from "../../actions/alert";
 // import CardsContext from '../../co';
 
-export default () => {
+const AddCard = ({ addNewCard }) => {
   // const { dispatch } = useContext(CardsContext);
   const navigate = useNavigate();
 
@@ -62,3 +65,11 @@ export default () => {
     </>
   );
 };
+
+AddCard.propTypes = {
+  addNewCard: propTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({});
+
+export default connect(mapStateToProps, { addNewCard })(AddCard);
