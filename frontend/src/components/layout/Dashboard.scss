@@ -47,6 +47,14 @@
     transform: translate(-50%, -50%);
 }
 
+.bt3 {
+    position: absolute;
+    top: 480px;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
 .button:hover {
     box-shadow: 0px 0px 14px 0.3px #00000096;
 }
