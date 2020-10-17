@@ -1,15 +1,11 @@
-import React, { useContext } from 'react';
-import CardsContext from '../contexts/CardsContext';
+import React, { useContext } from "react";
+import CardsContext from "../contexts/CardsContext";
 
 const ViewCard = ({ id }) => {
-    const { state:cards } = useContext(CardsContext);
-    const card = cards[id];
+  const { state: cards } = useContext(CardsContext);
+  const card = cards[id];
 
-    return (
-        <>
-            {card.nickname}
-        </>
-    )
-}
+  return <>{card.nickname}</>;
+};
 
 export default ViewCard;
