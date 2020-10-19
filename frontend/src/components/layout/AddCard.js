@@ -1,6 +1,6 @@
-import React, { useState, useContext } from "react";
-import "./AddCard.scss"
-import img from "../../Images/Card-Icon.png"
+import React, { useState } from "react";
+import "./AddCard.scss";
+import img from "../../Images/Card-Icon.png";
 import { useNavigate } from "@reach/router";
 import { connect } from "mongoose";
 import { addNewCard } from "../../actions/cards";
@@ -50,7 +50,7 @@ const AddCard = ({ addNewCard }) => {
   return (
     <>
       <form>
-      <img className="icon" src={img} alt="Colourful opal icon" />
+        <img className="icon" src={img} alt="Colourful opal icon" />
         <label htmlFor="nickname">Card Nickname</label>
         <input name="nickname" value={card.nickname} onChange={setNickname} />
         <label htmlFor="type">Card Type</label>
