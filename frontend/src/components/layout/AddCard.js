@@ -50,6 +50,7 @@ const AddCard = ({ addNewCard }) => {
   return (
     <>
       <form>
+      <img className="icon" src={img} alt="Colourful opal icon" />
         <label htmlFor="nickname">Card Nickname</label>
         <input name="nickname" value={card.nickname} onChange={setNickname} />
         <label htmlFor="type">Card Type</label>
