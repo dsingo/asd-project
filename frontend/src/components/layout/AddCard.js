@@ -48,24 +48,26 @@ const AddCard = ({ addNewCard }) => {
   };
 
   return (
-    <>
-      <form>
-        <img className="icon" src={img} alt="Colourful opal icon" />
-        <label htmlFor="nickname">Card Nickname</label>
-        <input name="nickname" value={card.nickname} onChange={setNickname} />
-        <label htmlFor="type">Card Type</label>
-        <select value={card.type} onChange={setCardType}>
-          {cardTypes.map((type, index) => (
-            <option key={index} value={type}>
-              {type}
-            </option>
-          ))}
-        </select>
-        <button type="submit" onClick={addCard}>
-          Add New Card
-        </button>
-      </form>
-    </>
+    <div className="main">
+      <div className="rect">
+        <form>
+          <img className="icon" src={img} alt="Colourful opal icon" />
+          <label htmlFor="nickname">Card Nickname</label>
+          <input name="nickname" value={card.nickname} onChange={setNickname} />
+          <label htmlFor="type">Card Type</label>
+          <select value={card.type} onChange={setCardType}>
+            {cardTypes.map((type, index) => (
+              <option key={index} value={type}>
+                {type}
+              </option>
+            ))}
+          </select>
+          <button type="submit" onClick={addCard}>
+            Add New Card
+          </button>
+        </form>
+      </div>
+    </div>
   );
 };
 
