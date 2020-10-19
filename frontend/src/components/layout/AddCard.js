@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./AddCard.scss"
+import img from "../../Images/Card-Icon.png"
 import { useNavigate } from "@reach/router";
 import { connect } from "mongoose";
 import { addNewCard } from "../../actions/cards";
