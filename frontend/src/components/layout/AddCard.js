@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./AddCard.scss";
 import img from "../../Images/Card-Icon.png";
 import { useNavigate } from "@reach/router";
-import { connect } from "mongoose";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { addNewCard } from "../../actions/cards";
 import { setAlert } from "../../actions/alert";
 // import CardsContext from '../../co';
@@ -72,7 +73,7 @@ const AddCard = ({ addNewCard }) => {
 };
 
 AddCard.propTypes = {
-  addNewCard: propTypes.func.isRequired,
+  addNewCard: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({});
