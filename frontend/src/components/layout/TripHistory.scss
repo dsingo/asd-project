@@ -1,0 +1,21 @@
+.trip-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.trip-time, .trip-info, .trip-price {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+//.trip-time {}
+//.trip-info {}
+//.trip-price {}
+
+.trip-history-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: 0 auto;
+}
