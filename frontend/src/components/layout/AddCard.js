@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 import "./AddCard.scss";
 import img from "../../Images/Card-Icon.png";
-import { useNavigate } from "@reach/router";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { addNewCard } from "../../actions/cards";
-//import { setAlert } from "../../actions/alert";
-// import CardsContext from '../../co';
+
 
 const AddCard = ({ addNewCard }) => {
-  // const { dispatch } = useContext(CardsContext);
-  const navigate = useNavigate();
 
   const [card, setCard] = useState({
     nickname: "",
@@ -40,18 +36,13 @@ const AddCard = ({ addNewCard }) => {
 
   const addCard = (e) => {
     e.preventDefault();
-    const action = {
-      type: "ADD_CARD",
-      card: card,
-    };
-    // dispatch(action);
-    navigate("/");
+    addNewCard({ card });
   };
 
   return (
     <div className="main">
       <div className="rect">
-        <form className="base-rect">
+        <form className="base-rect" addCard={(e) => addCard(e)}>
           <div className="heading">Add a new card</div>
           <img className="icon" src={img} alt="Colourful opal icon" />
           <div className="content">
@@ -74,7 +65,7 @@ const AddCard = ({ addNewCard }) => {
               </div>
             </div>
           </div>
-          <button type="submit" onClick={addCard}>
+          <button type="submit" className="btn">
             Add New Card
           </button>
         </form>
