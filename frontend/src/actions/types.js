@@ -12,6 +12,8 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 
 export const ADDED_CARD = 'ADDED_CARD';
 
+export const FAILED_ADD_CARD = 'FAILED_ADD_CARD';
+
 export const LOGOUT = 'LOGOUT';
 
 export const ACCOUNT_DELETED = 'ACCOUNT_DELETED';
