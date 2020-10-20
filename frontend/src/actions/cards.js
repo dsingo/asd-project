@@ -4,7 +4,7 @@ import { setAlert } from "./alert";
 import setAuthToken from "../utils/setAuthToken";
 
 export const addNewCard = (card) => async (dispatch) => {
-  try {
+  /*try {
     await axios.post("/cards", { card });
 
     dispatch({ type: ADDED_CARD, payload: card });
@@ -16,5 +16,5 @@ export const addNewCard = (card) => async (dispatch) => {
       payload: { msg: err.response.statusText, status: err.response.status },
     });
     console.log("not success");
-  }
+  }*/
 };
