@@ -12,6 +12,7 @@ import PrivateRoute from './components/routing/PrivateRoute';
 import EditEmail from './components/layout/EditEmail';
 import EditPassword from './components/layout/EditPassword';
 import AddCard from './components/layout/AddCard';
+import ViewCards from './components/layout/ViewCards'
 import FAQ from './components/layout/FAQ';
 import Contact from './components/layout/Contact';
 
@@ -42,6 +43,7 @@ const App = () => {
               <PrivateRoute exact path="/editemail" component={EditEmail} />
               <PrivateRoute exact path="/editpassword" component={EditPassword} />
               <PrivateRoute exact path="/addcard" component={AddCard} />
+              <PrivateRoute exact path="/viewcards" component={Card} />
               <Route exact path="/faq" component={FAQ} />
               <Route exact path="/contactus" component={Contact} />
             </Switch>
