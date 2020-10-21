@@ -3,7 +3,7 @@ import viewUserCards from "../../actions/cards";
 import axios from "axios";
 
 const ViewCards = () => {
-  const cards = viewUserCards(0);
+  const cards = viewUserCards();
   const listcards = cards.map((d) => <li key={d.nickname}>{d.nickname}</li>);
 
   return (
