@@ -3,9 +3,9 @@ import CardsContext from "../contexts/CardsContext";
 
 const ViewCard = ({ id }) => {
   const { state: cards } = useContext(CardsContext);
-  const card = cards[id];
+  const listcards = data.map((d) => <li key={d.nickname}>{d.nickname}</li>);
 
-  return <>{card.nickname}</>;
+  return <div>{listcards}</div>;
 };
 
 export default ViewCard;
