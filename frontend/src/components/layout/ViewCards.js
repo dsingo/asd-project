@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
+import viewUserCards from "../../actions/cards";
+import axios from "axios";
 
-
-const ViewCard = () => {
-  const cards = [];
+const ViewCards = () => {
+  const cards = viewUserCards(0);
   const listcards = cards.map((d) => <li key={d.nickname}>{d.nickname}</li>);
 
-  return <div>
-    <p>test</p>
-    {listcards}</div>;
+  return (
+    <div>
+      <p>test</p>
+      {listcards}
+    </div>
+  );
 };
 
-export default ViewCard;
+export default ViewCards;

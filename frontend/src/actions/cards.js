@@ -12,9 +12,15 @@ export const addNewCard = (card) => async (dispatch) => {
     console.log("success");
   } catch (err) {
     //dispatch({
-      //type: FAILED_ADD_CARD,
-      //payload: { msg: err.response.statusText, status: err.response.status },
+    //type: FAILED_ADD_CARD,
+    //payload: { msg: err.response.statusText, status: err.response.status },
     //});
     console.log("not success");
   }
+};
+
+export const viewUserCards = (id) => async (dispatch) => {
+  const params = new URLSearchParams(["id", id]);
+
+  const res = await axios.get('/cards', {params});
 };
