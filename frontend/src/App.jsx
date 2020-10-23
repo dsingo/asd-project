@@ -13,6 +13,7 @@ import EditEmail from './components/layout/EditEmail';
 import EditPassword from './components/layout/EditPassword';
 import FAQ from './components/layout/FAQ';
 import Contact from './components/layout/Contact';
+import TripHistory from './components/layout/TripHistory';
 
 //Redux
 import { Provider } from "react-redux";
@@ -40,6 +41,7 @@ const App = () => {
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/editemail" component={EditEmail} />
               <PrivateRoute exact path="/editpassword" component={EditPassword} />
+              <PrivateRoute exact path="/trips" component={TripHistory} />
               <Route exact path="/faq" component={FAQ} />
               <Route exact path="/contactus" component={Contact} />
             </Switch>
