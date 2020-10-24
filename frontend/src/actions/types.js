@@ -10,9 +10,12 @@ export const AUTH_ERROR = "AUTH_ERROR";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 
-export const ADDED_CARD = "ADDED_CARD";
+export const ADD_CARD = "ADD_CARD";
+export const ADD_CARDS = "ADD_CARDS";
 export const DELETED_CARD = "DELETED_CARD"
 export const FAILED_ADD_CARD = "FAILED_ADD_CARD";
+export const FAILED_ADD_CARDS = "FAILED_ADD_CARDS";
+export const LOADING_CARDS = "LOADING_CARDS";
 export const FAILED_DELETE_CARD = "FAILED_DELETE_CARD";
 export const VIEWED_CARDS = "VIEWED_CARDS";
 export const FAILED_VIEW_CARDS = "FAILED_VIEW_CARDS";

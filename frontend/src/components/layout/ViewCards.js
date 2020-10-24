@@ -1,25 +1,40 @@
-import React, { useContext } from "react";
-import viewUserCards from "../../actions/cards";
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import { viewUserCards } from "../../actions/cards";
 import "./ViewCards.scss";
-import axios from "axios";
+import { connect } from "react-redux";
 
-const ViewCards = () => {
-  const cards = viewUserCards();
-  const listcards = cards.map((d) => <li key={d.nickname}>{d.nickname}</li>);
+const ViewCards = ({ cards, loadedCards, getCards, loading }) => {
+
+  useEffect(() => {
+    if (!loadedCards) {
+      getCards();
+    };
+  },[])
 
   return (
     <div>
-      <p>test</p>
-      {listcards}
+      { loading && <p>Loading Cards...</p> }
+      {cards.map(
+        (card, i) => <li key={i}>{card.name} - {card.type} - {card.balance}</li>
+      )}
     </div>
   );
-};
+}; 
 
 ViewCards.propTypes = {
-  setAlert: PropTypes.func.isRequired,
-  viewUserCards: PropTypes.func.isRequired,
+  cards: PropTypes.array,
+  getCards: PropTypes.func.isRequired,
+  loading: PropTypes.bool,
+  loadedCards: true
 };
 
-export default connect(mapStateToProps, { setAlert, updatePassword })(
+const mapStateToProps = ({ cards: state }) =>  ({
+  loading: state.loading,
+  cards: state.cards,
+  loadedCards: state.loadedCards
+});
+
+export default connect(mapStateToProps, { getCards: viewUserCards })(
   ViewCards
 );

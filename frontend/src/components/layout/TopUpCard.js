@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { setAlert } from "../../actions/alert";
 
-const EditPassword = ({ setAlert, addToCard }) => {
+const TopUpCard = ({ setAlert, addToCard }) => {
   const [formData, setFormData] = useState({
     id: "",
     amount: "",
