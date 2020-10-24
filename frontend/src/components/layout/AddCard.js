@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import { Link, Redirect, withRouter } from "react-router-dom";
 import { addNewCard } from "../../actions/cards";
 
-function AddCard(props) {
+export default function AddCard(props) {
   const [nickname, setNickname] = useState("");
   const [userID, setUserID] = useState("xxxxxxxxxxxxxxxxxxxxxxxx");
   const [balance, setBalance] = useState(0);
