@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import { Link, Redirect, withRouter } from "react-router-dom";
 import { addNewCard } from "../../actions/cards";
 
-function AddCard(props) {
+export default function AddCard(props) {
   const [nickname, setNickname] = useState("");
   const [userID, setUserID] = useState("xxxxxxxxxxxxxxxxxxxxxxxx");
   const [balance, setBalance] = useState(0);
@@ -15,32 +15,17 @@ function AddCard(props) {
   const [type, setType] = useState("Adult");
   const cardTypes = ["Adult", "Concession", "Child"];
 
-  function handleSubmit() {
-    const card = {
-      id: userID,
-      nickname: nickname,
-      balance: balance,
-      type: type,
-      history: history,
-    };
-
-    const user = {
-      id: userID,
-    };
-
-    console.log(card);
-
-    const url = "/cards";
-
-    try {
-      axios
-        .post(url, { card, user })
-
-
-  const addCard = (e) => {
-    e.preventDefault();
-    addNewCard(card);
-  };
+      const addCard = (e) => {
+        e.preventDefault();
+        const card = {
+          id: userID,
+          nickname: nickname,
+          balance: balance,
+          type: type,
+          history: history,
+        };
+        addNewCard(card);
+      };
 
 
   return (
