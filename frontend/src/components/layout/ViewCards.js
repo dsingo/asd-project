@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import viewUserCards from "../../actions/cards";
+
 import "./ViewCards.scss";
 import axios from "axios";
 
@@ -15,11 +15,13 @@ const ViewCards = () => {
   );
 };
 
+
+
 ViewCards.propTypes = {
   setAlert: PropTypes.func.isRequired,
   viewUserCards: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, { setAlert, updatePassword })(
+export default connect(mapStateToProps, { setAlert, viewUserCards })(
   ViewCards
 );
