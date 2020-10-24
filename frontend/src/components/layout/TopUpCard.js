@@ -19,7 +19,6 @@ const EditPassword = ({ setAlert, addToCard }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    
   };
 
   return (
@@ -51,6 +50,4 @@ TopUpCard.propTypes = {
 
 const mapStateToProps = (state) => ({});
 
-export default connect(mapStateToProps, { setAlert, addToCard })(
-  TopUpCard
-);
+export default connect(mapStateToProps, { setAlert, addToCard })(TopUpCard);

@@ -3,7 +3,6 @@ import { ADDED_CARD, FAILED_ADD_CARD } from "./types";
 import { setAlert } from "./alert";
 import setAuthToken from "../utils/setAuthToken";
 
-
 // Load user
 export const loadUser = () => async (dispatch) => {
   if (localStorage.token) {
@@ -42,13 +41,9 @@ export const addNewCard = (card) => async (dispatch) => {
 export const viewUserCards = (id) => async (dispatch) => {
   const params = new URLSearchParams(["id", id]);
 
-  const res = await axios.get('/cards', {params});
+  const res = await axios.get("/cards", { params });
 };
 
-export const addToCard = (id) => async (dispatch) => {
+export const addToCard = (id) => async (dispatch) => {};
 
-}
-
-export const deleteSelectedCard = (id) => async (dispatch) => {
-  
-}
+export const deleteSelectedCard = (id) => async (dispatch) => {};

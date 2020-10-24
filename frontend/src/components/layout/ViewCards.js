@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import viewUserCards from "../../actions/cards";
-import "./ViewCards.scss"
+import "./ViewCards.scss";
 import axios from "axios";
 
 const ViewCards = () => {

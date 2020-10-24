@@ -50,8 +50,8 @@ const App = () => {
               />
               <PrivateRoute exact path="/addcard" component={AddCard} />
               <PrivateRoute exact path="/viewcards" component={ViewCards} />
-              <PrivateRoute exact path="/deletecard" component={DeleteCard}/>
-              <PrivateRoute exact path="/topupcard" component={TopUpCard}/>
+              {/*<PrivateRoute exact path="/deletecard" component={DeleteCard} /> */}
+              {/*<PrivateRoute exact path="/topupcard" component={TopUpCard} /> */}
               <Route exact path="/faq" component={FAQ} />
               <Route exact path="/contactus" component={Contact} />
             </Switch>
