@@ -43,3 +43,11 @@ export const viewUserCards = (id) => async (dispatch) => {
 
   const res = await axios.get('/cards', {params});
 };
+
+export const addToCard = (id) => async (dispatch) => {
+
+}
+
+export const deleteSelectedCard = (id) => async (dispatch) => {
+  
+}
