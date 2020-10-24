@@ -11,8 +11,13 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 
 export const ADDED_CARD = "ADDED_CARD";
+export const DELETED_CARD = "DELETED_CARD"
 export const FAILED_ADD_CARD = "FAILED_ADD_CARD";
+export const FAILED_DELETE_CARD = "FAILED_DELETE_CARD";
 export const VIEWED_CARDS = "VIEWED_CARDS";
+export const FAILED_VIEW_CARDS = "FAILED_VIEW_CARDS";
+export const TOPPED_UP_CARD = "TOPPED_UP_CARD";
+export const FAILED_TOP_UP = "FAILED_TOP_UP";
 
 export const LOGOUT = "LOGOUT";
 

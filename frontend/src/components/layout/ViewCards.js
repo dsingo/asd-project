@@ -15,4 +15,11 @@ const ViewCards = () => {
   );
 };
 
-export default ViewCards;
+ViewCards.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  viewUserCards: PropTypes.func.isRequired,
+};
+
+export default connect(mapStateToProps, { setAlert, updatePassword })(
+  ViewCards
+);

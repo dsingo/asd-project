@@ -3,6 +3,7 @@ import { ADDED_CARD, FAILED_ADD_CARD } from "./types";
 import { setAlert } from "./alert";
 import setAuthToken from "../utils/setAuthToken";
 
+
 // Load user
 export const loadUser = () => async (dispatch) => {
   if (localStorage.token) {
