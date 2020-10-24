@@ -1,43 +1,25 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./AddCard.scss";
 import img from "../../Images/Card-Icon.png";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Link, Redirect, withRouter } from "react-router-dom";
 import { addNewCard } from "../../actions/cards";
 
-
-const AddCard = ({ addNewCard }) => {
-
-  const [card, setCard] = useState({
-    nickname: "",
-    type: "Adult",
-    balance: 0,
-  });
-
-  const setNickname = (e) => {
-    const newNickname = e.target.value;
-
-    setCard({
-      ...card,
-      nickname: newNickname,
-    });
-  };
-
-  const setCardType = (e) => {
-    const newCardType = e.target.value;
-
-    setCard({
-      ...card,
-      type: newCardType,
-    });
-  };
-
+function AddCard(props) {
+  const [nickname, setNickname] = useState("");
+  const [userID, setUserID] = useState("");
+  const [balance, setBalance] = useState(0);
+  const [history, setHistory] = useState("");
+  const [type, setType] = useState("Adult");
   const cardTypes = ["Adult", "Concession", "Child"];
 
-  const addCard = (e) => {
-    e.preventDefault();
-    addNewCard({ card });
-  };
+  function handleSubmit() {
+    const card = {
+      id: userID
+    };
+  }
 
   return (
     <div className="main">
@@ -51,11 +33,11 @@ const AddCard = ({ addNewCard }) => {
                 <label htmlFor="nickname">Card Nickname</label>
                 <input
                   name="nickname"
-                  value={card.nickname}
+                  value={nickname}
                   onChange={setNickname}
                 />
                 <label htmlFor="type">Card Type</label>
-                <select value={card.type} onChange={setCardType}>
+                <select value={type} onChange={setType}>
                   {cardTypes.map((type, index) => (
                     <option key={index} value={type}>
                       {type}
@@ -72,12 +54,4 @@ const AddCard = ({ addNewCard }) => {
       </div>
     </div>
   );
-};
-
-AddCard.propTypes = {
-  addNewCard: PropTypes.func.isRequired,
-};
-
-const mapStateToProps = (state) => ({});
-
-export default connect(mapStateToProps, { addNewCard })(AddCard);
+}
