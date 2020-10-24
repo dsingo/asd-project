@@ -1,6 +1,8 @@
+
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { viewUserCards } from "../../actions/cards";
+
 import "./ViewCards.scss";
 import { connect } from "react-redux";
 
@@ -25,12 +27,15 @@ const ViewCards = ({ cards, loadedCards, getCards, loading }) => {
   );
 }; 
 
+
+
 ViewCards.propTypes = {
   cards: PropTypes.array,
   getCards: PropTypes.func.isRequired,
   loading: PropTypes.bool,
   loadedCards: true
 };
+
 
 const mapStateToProps = ({ cards: state }) =>  ({
   loading: state.loading,
@@ -39,5 +44,6 @@ const mapStateToProps = ({ cards: state }) =>  ({
 });
 
 export default connect(mapStateToProps, { getCards: viewUserCards })(
+
   ViewCards
 );
