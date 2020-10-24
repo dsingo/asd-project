@@ -13,11 +13,14 @@ const ViewCards = ({ cards, loadedCards, getCards, loading }) => {
   },[])
 
   return (
-    <div>
-      { loading && <p>Loading Cards...</p> }
-      {cards.map(
-        (card, i) => <li key={i}>{card.name} - {card.type} - {card.balance}</li>
-      )}
+    <div className="main">
+      <div className="base-rect">
+        <h2 className="heading">Your Opal Cards</h2>
+        { loading && <p>Loading Cards...</p> }
+        {cards.map(
+          (card, i) => <li key={i}>{card.name} - {card.type} - {card.balance}</li>
+        )}
+      </div>
     </div>
   );
 }; 

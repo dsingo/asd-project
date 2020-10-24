@@ -23,19 +23,20 @@ export const loadUser = () => async (dispatch) => {
   }
 };
 export const addNewCard = (card) => async (dispatch) => {
-  try {
-    await axios.post("/cards", { card });
-
-    dispatch({ type: ADD_CARD, payload: card });
-
-    console.log("success");
-  } catch (err) {
-    dispatch({
-    type: FAILED_ADD_CARD,
-    payload: { msg: err.response.statusText, status: err.response.status },
-    });
-    console.log("not success");
-  }
+  axios.post("/cards", card).then(
+    res => {
+      console.log(res)
+      dispatch({ type: ADD_CARD, payload: card });
+    }
+  ).catch(
+    err => {
+      console.log(err)
+      dispatch({
+      type: FAILED_ADD_CARD,
+      payload: { msg: err.response.statusText, status: err.response.status },
+      })
+    }
+  )
 };
 
 export const viewUserCards = () => async (dispatch) => {

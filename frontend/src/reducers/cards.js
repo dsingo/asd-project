@@ -12,7 +12,7 @@ const cards = (state = initialState, action) => {
             return {
                 ...state,
                 cards: [
-                    ...cards,
+                    ...state.cards,
                     action.card
                 ]
             }

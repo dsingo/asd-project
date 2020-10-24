@@ -36,7 +36,7 @@ const AddCard = ({ addNewCard }) => {
 
   const addCard = (e) => {
     e.preventDefault();
-    addNewCard({ card });
+    addNewCard(card);
   };
 
   return (
@@ -65,7 +65,7 @@ const AddCard = ({ addNewCard }) => {
               </div>
             </div>
           </div>
-          <button type="submit" className="btn">
+          <button type="submit" className="btn" onClick={addCard}>
             Add New Card
           </button>
         </form>
