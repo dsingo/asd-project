@@ -36,16 +36,12 @@ function AddCard(props) {
       axios
         .post(url, { card, user })
 
-        .then((response) => {
-          setStatus(response.status);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  }
+
+  const addCard = (e) => {
+    e.preventDefault();
+    addNewCard(card);
+  };
+
 
   return (
     <div className="main">
@@ -73,7 +69,9 @@ function AddCard(props) {
               </div>
             </div>
           </div>
-          <button type="submit" onClick={handleSubmit} className="btn">
+
+          <button type="submit" className="btn" onClick={addCard}>
+
             Add New Card
           </button>
         </form>

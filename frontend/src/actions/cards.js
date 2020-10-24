@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ADDED_CARD, FAILED_ADD_CARD } from "./types";
+import { ADD_CARD, FAILED_ADD_CARD, FAILED_ADD_CARDS, USER_LOADED, AUTH_ERROR, LOADING_CARDS, ADD_CARDS } from "./types";
 import { setAlert } from "./alert";
 import setAuthToken from "../utils/setAuthToken";
 
@@ -23,23 +23,47 @@ export const loadUser = () => async (dispatch) => {
   }
 };
 export const addNewCard = (card) => async (dispatch) => {
-  try {
-    await axios.post("/cards", { card });
-
-    //dispatch({ type: ADDED_CARD, payload: card });
-
-    console.log("success");
-  } catch (err) {
-    //dispatch({
-    //type: FAILED_ADD_CARD,
-    //payload: { msg: err.response.statusText, status: err.response.status },
-    //});
-    console.log("not success");
-  }
+  axios.post("/cards", card).then(
+    res => {
+      console.log(res)
+      dispatch({ type: ADD_CARD, payload: card });
+    }
+  ).catch(
+    err => {
+      console.log(err)
+      dispatch({
+      type: FAILED_ADD_CARD,
+      payload: { msg: err.response.statusText, status: err.response.status },
+      })
+    }
+  )
 };
 
-export const viewUserCards = (id) => async (dispatch) => {
-  
+export const viewUserCards = () => async (dispatch) => {
+  console.log('hello!')
+  dispatch({ type: LOADING_CARDS })
+  axios.get("/cards").then(
+    payload => {
+      console.log(payload.data)
+      dispatch({ type: ADD_CARDS, cards: payload.data})
+    }
+  ).catch(
+    err => {
+      console.log(err)
+      dispatch({
+        type: FAILED_ADD_CARDS,
+        payload: { msg: err.response.statusText, status: err.response.status }
+      })
+    }
+  )
+};
+
+
+export const viewUserCardById = (id) => async (dispatch) => {
+  const params = new URLSearchParams(["id", id]);
+
+  const res = await axios.get("/cards", { params });
+
 };
 
 export const addToCard = (id) => async (dispatch) => {};
