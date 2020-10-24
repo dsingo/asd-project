@@ -9,7 +9,7 @@ import { addNewCard } from "../../actions/cards";
 
 function AddCard(props) {
   const [nickname, setNickname] = useState("");
-  const [userID, setUserID] = useState("");
+  const [userID, setUserID] = useState("xxxxxxxxxxxxxxxxxxxxxxxx");
   const [balance, setBalance] = useState(0);
   const [history, setHistory] = useState("");
   const [type, setType] = useState("Adult");
@@ -17,8 +17,34 @@ function AddCard(props) {
 
   function handleSubmit() {
     const card = {
-      id: userID
+      id: userID,
+      nickname: nickname,
+      balance: balance,
+      type: type,
+      history: history,
     };
+
+    const user = {
+      id: userID,
+    };
+
+    console.log(card);
+
+    const url = "/cards";
+
+    try {
+      axios
+        .post(url, { card, user })
+
+        .then((response) => {
+          setStatus(response.status);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -47,7 +73,7 @@ function AddCard(props) {
               </div>
             </div>
           </div>
-          <button type="submit" className="btn">
+          <button type="submit" onClick={handleSubmit} className="btn">
             Add New Card
           </button>
         </form>
