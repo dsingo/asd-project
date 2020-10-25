@@ -16,7 +16,7 @@ const ViewCards = ({ cards, loadedCards, getCards, loading }) => {
 
   return (
     <div className="main">
-      <div className="base-rect">
+      <div className="rect">
         <h2 className="heading">Your Opal Cards</h2>
         { loading && <p>Loading Cards...</p> }
         {cards.map(

@@ -27,6 +27,9 @@ export const addNewCard = (card) => async (dispatch) => {
     res => {
       console.log(res)
       dispatch({ type: ADD_CARD, payload: card });
+      dispatch(
+        setAlert("This card has been added successfully.", "success")
+      );
     }
   ).catch(
     err => {
