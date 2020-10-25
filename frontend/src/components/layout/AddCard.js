@@ -7,21 +7,22 @@ import PropTypes from "prop-types";
 import { Link, Redirect, withRouter } from "react-router-dom";
 import { addNewCard } from "../../actions/cards";
 
-export default function AddCard(props) {
-  const [nickname, setNickname] = useState("");
-  const [type, setType] = useState("Adult"); 
+const AddCard = ({ addNewCard }) => {
+  const [formData, setFormData] = useState({
+    card: {
+      nickname: "",
+      type: "Adult",
+    },
+  });
+
   const cardTypes = ["Adult", "Concession", "Child"];
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const addCard = (e) => {
     e.preventDefault();
-    const card = {
-      id: "x",
-      nickname: nickname,
-      balance: 0,
-      type: type,
-      history: [],
-    };
-    addNewCard(card);
+    addNewCard(formData.card);
   };
 
   return (
@@ -36,11 +37,14 @@ export default function AddCard(props) {
                 <label htmlFor="nickname">Card Nickname</label>
                 <input
                   name="nickname"
-                  value={nickname}
-                  onChange={setNickname}
+                  value={formData.card.nickname}
+                  onChange={(e) => onChange(e)}
                 />
                 <label htmlFor="type">Card Type</label>
-                <select value={type} onChange={setType}>
+                <select
+                  value={formData.card.type}
+                  onChange={(e) => onChange(e)}
+                >
                   {cardTypes.map((type, index) => (
                     <option key={index} value={type}>
                       {type}
@@ -58,4 +62,12 @@ export default function AddCard(props) {
       </div>
     </div>
   );
-}
+};
+
+AddCard.propTypes = {
+  addNewCard: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({});
+
+export default connect(mapStateToProps, { addNewCard })(AddCard);
