@@ -30,7 +30,7 @@ const ViewSingleCard = ({ getCard }) => {
     <div className="main">
       <div className="rect">
         <div className="opal-heading">{id}</div>
-        <div className="topup">
+        <div class="topupcard">
           <label>
             Top Up Amount:
             <input
@@ -41,7 +41,7 @@ const ViewSingleCard = ({ getCard }) => {
           </label>
           <button onclick={TopUpCard}>Delete Card</button>
         </div>
-        <div className="delete">
+        <div class="deletecard">
           <button onclick={DeleteCard}>Delete Card</button>
           <p>This is irreversible. </p>
           <p>Do not click unless you are very sure.</p>
