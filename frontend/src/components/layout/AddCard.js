@@ -9,13 +9,11 @@ import { addNewCard } from "../../actions/cards";
 
 const AddCard = ({ addNewCard }) => {
   const [formData, setFormData] = useState({
-    card: {
       nickname: "",
       type: "Adult",
-    },
   });
 
-  const {card} = formData;
+  const {nickname, type} = formData;
 
   const cardTypes = ["Adult", "Concession", "Child"];
 
@@ -24,6 +22,10 @@ const AddCard = ({ addNewCard }) => {
 
   const addCard = (e) => {
     e.preventDefault();
+    const card = {
+      nickname: nickname,
+      type: type
+    }
     addNewCard(card);
   };
 
@@ -39,12 +41,12 @@ const AddCard = ({ addNewCard }) => {
                 <label htmlFor="nickname">Card Nickname</label>
                 <input
                   name="nickname"
-                  value={card.nickname}
+                  value={nickname}
                   onChange={(e) => onChange(e)}
                 />
                 <label htmlFor="type">Card Type</label>
                 <select
-                  value={card.type}
+                  value={type}
                   onChange={(e) => onChange(e)}
                 >
                   {cardTypes.map((type, index) => (
