@@ -24,7 +24,7 @@ const ViewSingleCard = ({ getCard }) => {
 
   useEffect(() => {
     getCard(id);
-  }, []);
+  });
 
   const DeleteCard = async (e) => {
     e.preventDefault();
@@ -33,8 +33,7 @@ const ViewSingleCard = ({ getCard }) => {
 
   const TopUpCard = (e) => {
     e.preventDefault();
-    console.log(e);
-    //addToCard(id, amount);
+    addToCard(id, amount);
   };
 
   return (
