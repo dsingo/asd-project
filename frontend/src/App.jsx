@@ -13,6 +13,7 @@ import EditEmail from "./components/layout/EditEmail";
 import EditPassword from "./components/layout/EditPassword";
 import AddCard from "./components/layout/AddCard";
 import ViewCards from "./components/layout/ViewCards";
+import ViewSingleCard from "./components/layout/ViewSingleCard"
 
 import FAQ from "./components/layout/FAQ";
 import Contact from "./components/layout/Contact";
@@ -51,6 +52,7 @@ const App = () => {
               />
               <PrivateRoute exact path="/addcard" component={AddCard} />
               <PrivateRoute exact path="/viewcards" component={ViewCards} />
+              <PrivateRoute path="/viewsinglecard/:id" component={ViewSingleCard} />
               <Route exact path="/faq" component={FAQ} />
               <Route exact path="/contactus" component={Contact} />
             </Switch>
