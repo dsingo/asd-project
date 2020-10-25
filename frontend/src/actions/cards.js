@@ -1,5 +1,15 @@
 import axios from "axios";
-import { ADD_CARD, FAILED_ADD_CARD, FAILED_ADD_CARDS, USER_LOADED, AUTH_ERROR, LOADING_CARDS, ADD_CARDS } from "./types";
+import {
+  ADD_CARD,
+  FAILED_ADD_CARD,
+  FAILED_ADD_CARDS,
+  USER_LOADED,
+  AUTH_ERROR,
+  LOADING_CARDS,
+  ADD_CARDS,
+  DELETED_CARD,
+  FAILED_DELETE_CARD,
+} from "./types";
 import { setAlert } from "./alert";
 import setAuthToken from "../utils/setAuthToken";
 
@@ -23,39 +33,34 @@ export const loadUser = () => async (dispatch) => {
   }
 };
 export const addNewCard = (card) => async (dispatch) => {
-  axios.post("/cards", card).then(
-    res => {
+  axios
+    .post("/cards", card)
+    .then((res) => {
       dispatch({ type: ADD_CARD, payload: card });
-      dispatch(
-        setAlert("This card has been added successfully.", "success")
-      );
-    }
-  ).catch(
-    err => {
+      dispatch(setAlert("This card has been added successfully.", "success"));
+    })
+    .catch((err) => {
       dispatch({
-      type: FAILED_ADD_CARD,
-      payload: { msg: err.response.statusText, status: err.response.status },
-      })
-    }
-  )
+        type: FAILED_ADD_CARD,
+        payload: { msg: err.response.statusText, status: err.response.status },
+      });
+    });
 };
 
 export const viewUserCards = () => async (dispatch) => {
-  dispatch({ type: LOADING_CARDS })
-  axios.get("/cards").then(
-    payload => {
-      dispatch({ type: ADD_CARDS, cards: payload.data})
-    }
-  ).catch(
-    err => {
+  dispatch({ type: LOADING_CARDS });
+  axios
+    .get("/cards")
+    .then((payload) => {
+      dispatch({ type: ADD_CARDS, cards: payload.data });
+    })
+    .catch((err) => {
       dispatch({
         type: FAILED_ADD_CARDS,
-        payload: { msg: err.response.statusText, status: err.response.status }
-      })
-    }
-  )
+        payload: { msg: err.response.statusText, status: err.response.status },
+      });
+    });
 };
-
 
 export const viewUserCardById = (id) => async (dispatch) => {
   const params = new URLSearchParams(["id", id]);
@@ -64,10 +69,25 @@ export const viewUserCardById = (id) => async (dispatch) => {
 };
 
 export const searchCardById = (id) => async (dispatch) => {
-  const res = await axios.get("/cards", { id })
-  
+  const res = await axios.get("/cards", { id });
 };
 
 export const addToCard = (id) => async (dispatch) => {};
 
-export const deleteSelectedCard = (id) => async (dispatch) => {};
+export const deleteSelectedCard = (id) => async (dispatch) => {
+  try {
+    const res = await axios.delete("/:id");
+    dispatch({
+      type: DELETED_CARD,
+      payload: res.data,
+    });
+  } catch (err) {
+    const errors = err.response.data.errors;
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+      dispatch({
+        type: FAILED_DELETE_CARD,
+      });
+    }
+  }
+};

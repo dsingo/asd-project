@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./ViewSingleCard.scss";
+
 import img from "../../Images/Dashboard-Icon.png";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { searchCardById } from "../../actions/cards";
+import { searchCardById, addToCard, deleteSelectedCard } from "../../actions/cards";
 
 const ViewSingleCard = ({ getCard }) => {
   const { id } = useParams();
@@ -22,7 +23,10 @@ const ViewSingleCard = ({ getCard }) => {
   const onFormChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const DeleteCard = () => {};
+  const DeleteCard = async (e) => {
+    e.preventDefault();
+    deleteSelectedCard(id);
+  };
 
   const TopUpCard = () => {};
 
