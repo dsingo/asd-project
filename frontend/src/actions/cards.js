@@ -75,8 +75,10 @@ export const searchCardById = (id) => async (dispatch) => {
 export const addToCard = (id) => async (dispatch) => {};
 
 export const deleteSelectedCard = (id) => async (dispatch) => {
+  const params = new URLSearchParams({cardid: id})
+  const url = "/" + id;
   try {
-    const res = await axios.delete("/:id");
+    const res = await axios.delete(url, params);
     dispatch({
       type: DELETED_CARD,
       payload: res.data,
