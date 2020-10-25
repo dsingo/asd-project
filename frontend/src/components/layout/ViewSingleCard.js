@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./ViewSingleCard.scss";
-
-import img from "../../Images/Dashboard-Icon.png";
+import img from "../../Images/Card-Icon.png";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { searchCardById, addToCard, deleteSelectedCard } from "../../actions/cards";
+import {
+  searchCardById,
+  addToCard,
+  deleteSelectedCard,
+} from "../../actions/cards";
 
 const ViewSingleCard = ({ getCard }) => {
   const { id } = useParams();
@@ -20,7 +23,7 @@ const ViewSingleCard = ({ getCard }) => {
 
   const { amount } = formData;
 
-  const onFormChange = (e) =>
+  const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const DeleteCard = async (e) => {
@@ -36,23 +39,31 @@ const ViewSingleCard = ({ getCard }) => {
   return (
     <div className="main">
       <div className="rect">
-        <div className="opal-heading">{id}</div>
-        <div class="topupcard">
-          <label>
-            Top Up Amount:
-            <input
-              type="text"
-              value={amount}
-              onChange={(e) => onFormChange(e)}
-            />
-          </label>
-          <button onclick={TopUpCard}>Top Up Card</button>
-        </div>
-        <div class="deletecard">
-          <button onclick={DeleteCard}>Delete Card</button>
-          <p>This is irreversible. </p>
-          <p>Do not click unless you are very sure.</p>
-        </div>
+        <form className="base-rect" onSubmit={(e) => TopUpCard(e)}>
+          <div className="settings heading">Opal Card Settings</div>
+          <img className="opalcard" src={img} alt="Colourful email icon" />
+          <div className="content">
+            <div className="form">
+              <div className="form-group">
+                <input
+                  className="input input2"
+                  type="number"
+                  name="number"
+                  placeholder="Please enter a top up amount"
+                  value={amount}
+                  onChange={(e) => onChange(e)}
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <button type="submit" className="btn submit">
+            Top Up
+          </button>
+        </form>
+
+        <button className="btn delete2" onclick={DeleteCard}>Delete Card</button>
+
       </div>
     </div>
   );

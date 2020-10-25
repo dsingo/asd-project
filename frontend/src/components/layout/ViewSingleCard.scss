@@ -1,102 +1,162 @@
 .base-rect {
-    width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .heading {
+    font-size: 24px;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  .content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-  
-    .heading {
-      font-size: 24px;
-      font-family: "Open Sans", sans-serif;
-    }
-  
-    .content {
+
+    .form {
+      margin-top: 20px;
       display: flex;
       flex-direction: column;
-  
-      .form {
-        margin-top: 20px;
+      align-items: center;
+
+      .form-group {
         display: flex;
         flex-direction: column;
-        align-items: center;
-  
-        .form-group {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          width: fit-content;
-  
-          .input {
-            min-width: 18em;
-            height: 37px;
-            font-size: 16px;
-            font-family: "Open Sans", sans-serif;
-            background-color: #f3f3f3;
-            border: 0;
-            border-radius: 4px;
-            transition: all 250ms ease-in-out;
-            margin-bottom: 15px;
-            padding-left: 5px;
-  
-            &:hover {
-              background-color: #ffffff;
-              box-shadow: 0px 0px 14px 0.3px #00000096;
-            }
-  
-            &:focus {
-              outline: none;
-              box-shadow: 0px 0px 14px 0.3px #00000096
-            }
+        align-items: flex-start;
+        width: fit-content;
+
+        .input {
+          min-width: 18em;
+          height: 37px;
+          font-size: 16px;
+          font-family: "Open Sans", sans-serif;
+          background-color: #f3f3f3;
+          border: 0;
+          border-radius: 4px;
+          transition: all 250ms ease-in-out;
+          margin-bottom: 15px;
+          padding-left: 5px;
+
+          &:hover {
+            background-color: #ffffff;
+            box-shadow: 0px 0px 14px 0.3px #00000096;
+          }
+
+          &:focus {
+            outline: none;
+            box-shadow: 0px 0px 14px 0.3px #00000096;
           }
         }
       }
     }
-  
-    .footer {
-      margin-top: 10px;
-    }
-  }
-  
-  .icon {
-      height: 175px;
-      width: 175px;
-  }
-  
-  // Main Container
-  .main {
-      width: 27em;
-      height: 44em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      top: 45%;
-      z-index: 99;
-      left: 50%;
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-    
-      .rect {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #fff;
-        box-shadow: 0px 0px 12px 2px rgba(15, 15, 15, 0.2);
-        border-radius: 4px;
-        position: relative;
-        z-index: 99;
-        width: 100%;
-        height: 55%;
-        z-index: 99;
-      }
   }
 
-  .topupcard {
-    position: absolute;
-    top: 340px;
+  .footer {
+    margin-top: 10px;
   }
+}
 
-  .deletecard {
-    position: absolute;
-    top: 410px;
+.icon {
+  height: 175px;
+  width: 175px;
+}
+
+.settings {
+  top: 5%;
+  position: absolute;
+}
+
+.opalcard {
+  width: auto;
+  height: 130px;
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.submit {
+  position: absolute;
+  top: 65%;
+}
+
+.input2 {
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.delete2 {
+  position: absolute;
+  top: 85%;
+  left: 47%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: #dc3545;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.delete2:hover {
+  background-color: #a8212f;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.delete2:active {
+  background-color: #a8212f;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+// Main Container
+.main {
+  width: 27em;
+  height: 44em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 45%;
+  z-index: 99;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  .rect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0px 0px 12px 2px rgba(15, 15, 15, 0.2);
+    border-radius: 4px;
+    position: relative;
+    z-index: 99;
+    width: 100%;
+    height: 55%;
+    z-index: 99;
   }
+}
 
+.topupcard {
+  position: absolute;
+  top: 340px;
+}
+
+.deletecard {
+  position: absolute;
+  top: 410px;
+}
