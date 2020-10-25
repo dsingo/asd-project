@@ -72,7 +72,7 @@ export const searchCardById = (id) => async (dispatch) => {
   const res = await axios.get("/cards", { id });
 };
 
-export const addToCard = (id) => async (dispatch) => {};
+export const addToCard = (id, amount) => async (dispatch) => {};
 
 export const deleteSelectedCard = (id) => async (dispatch) => {
   const params = new URLSearchParams({cardid: id})

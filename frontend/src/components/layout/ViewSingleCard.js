@@ -28,7 +28,10 @@ const ViewSingleCard = ({ getCard }) => {
     deleteSelectedCard(id);
   };
 
-  const TopUpCard = () => {};
+  const TopUpCard = (e) => {
+    e.preventDefault();
+    addToCard(id, amount);
+  };
 
   return (
     <div className="main">
