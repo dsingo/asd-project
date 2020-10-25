@@ -44,18 +44,20 @@ const AddCard = ({ addNewCard }) => {
       <div className="rect">
         <form className="base-rect" addCard={(e) => addCard(e)}>
           <div className="heading">Add a new card</div>
-          <img className="icon" src={img} alt="Colourful opal icon" />
+          <img className="picture" src={img} alt="Colourful opal icon" />
           <div className="content">
             <div className="form">
               <div className="form-group">
                 <label htmlFor="nickname">Card Nickname</label>
                 <input
+                  className="nickname"
                   name="nickname"
                   value={card.nickname}
                   onChange={setNickname}
+                  required
                 />
                 <label htmlFor="type">Card Type</label>
-                <select value={card.type} onChange={setCardType}>
+                <select className="drop-down" value={card.type} onChange={setCardType}>
                   {cardTypes.map((type, index) => (
                     <option key={index} value={type}>
                       {type}
