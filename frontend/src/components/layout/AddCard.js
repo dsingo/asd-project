@@ -1,31 +1,41 @@
 import React, { useState } from "react";
-import axios from "axios";
 import "./AddCard.scss";
 import img from "../../Images/Card-Icon.png";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Link, Redirect, withRouter } from "react-router-dom";
 import { addNewCard } from "../../actions/cards";
 
+
 const AddCard = ({ addNewCard }) => {
-  const [formData, setFormData] = useState({
-      nickname: "",
-      type: "Adult",
+
+  const [card, setCard] = useState({
+    nickname: "",
+    type: "Adult",
+    balance: 0,
   });
 
-  const {nickname, type} = formData;
+  const setNickname = (e) => {
+    const newNickname = e.target.value;
+
+    setCard({
+      ...card,
+      nickname: newNickname,
+    });
+  };
+
+  const setCardType = (e) => {
+    const newCardType = e.target.value;
+
+    setCard({
+      ...card,
+      type: newCardType,
+    });
+  };
 
   const cardTypes = ["Adult", "Concession", "Child"];
 
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-
   const addCard = (e) => {
     e.preventDefault();
-    const card = {
-      nickname: nickname,
-      type: type
-    }
     addNewCard(card);
   };
 
@@ -41,14 +51,11 @@ const AddCard = ({ addNewCard }) => {
                 <label htmlFor="nickname">Card Nickname</label>
                 <input
                   name="nickname"
-                  value={nickname}
-                  onChange={(e) => onChange(e)}
+                  value={card.nickname}
+                  onChange={setNickname}
                 />
                 <label htmlFor="type">Card Type</label>
-                <select
-                  value={type}
-                  onChange={(e) => onChange(e)}
-                >
+                <select value={card.type} onChange={setCardType}>
                   {cardTypes.map((type, index) => (
                     <option key={index} value={type}>
                       {type}
@@ -58,7 +65,6 @@ const AddCard = ({ addNewCard }) => {
               </div>
             </div>
           </div>
-
           <button type="submit" className="btn" onClick={addCard}>
             Add New Card
           </button>
