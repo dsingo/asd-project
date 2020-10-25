@@ -25,7 +25,6 @@ export const loadUser = () => async (dispatch) => {
 export const addNewCard = (card) => async (dispatch) => {
   axios.post("/cards", card).then(
     res => {
-      console.log(res)
       dispatch({ type: ADD_CARD, payload: card });
       dispatch(
         setAlert("This card has been added successfully.", "success")
@@ -33,7 +32,6 @@ export const addNewCard = (card) => async (dispatch) => {
     }
   ).catch(
     err => {
-      console.log(err)
       dispatch({
       type: FAILED_ADD_CARD,
       payload: { msg: err.response.statusText, status: err.response.status },
@@ -43,16 +41,13 @@ export const addNewCard = (card) => async (dispatch) => {
 };
 
 export const viewUserCards = () => async (dispatch) => {
-  console.log('hello!')
   dispatch({ type: LOADING_CARDS })
   axios.get("/cards").then(
     payload => {
-      console.log(payload.data)
       dispatch({ type: ADD_CARDS, cards: payload.data})
     }
   ).catch(
     err => {
-      console.log(err)
       dispatch({
         type: FAILED_ADD_CARDS,
         payload: { msg: err.response.statusText, status: err.response.status }
@@ -66,7 +61,11 @@ export const viewUserCardById = (id) => async (dispatch) => {
   const params = new URLSearchParams(["id", id]);
 
   const res = await axios.get("/cards", { params });
+};
 
+export const searchCardById = (id) => async (dispatch) => {
+  const res = await axios.get("/cards", { id })
+  
 };
 
 export const addToCard = (id) => async (dispatch) => {};

@@ -16,10 +16,10 @@ const ViewCards = ({ cards, loadedCards, getCards, loading }) => {
   return (
     <div className="main">
       <div className="rect">
-        <h1 className="opal-heading">Your Opal Cards</h1>
+        <div className="opal-heading">Your Opal Cards</div>
         { loading && <p>Loading Cards...</p> }
         {cards.map(
-          (card, i) => <Link to={"/viewsinglecard/${card.id}"}>
+          (card, i) => <Link to={"/viewsinglecard/" + card.id}>
               <li className="cards" key={i}>{card.name} - {card.type} - {card.balance}</li>
             </Link>
         )}
