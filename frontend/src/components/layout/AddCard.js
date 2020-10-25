@@ -15,6 +15,8 @@ const AddCard = ({ addNewCard }) => {
     },
   });
 
+  const {card} = formData;
+
   const cardTypes = ["Adult", "Concession", "Child"];
 
   const onChange = (e) =>
@@ -22,7 +24,7 @@ const AddCard = ({ addNewCard }) => {
 
   const addCard = (e) => {
     e.preventDefault();
-    addNewCard(formData.card);
+    addNewCard(card);
   };
 
   return (
@@ -37,12 +39,12 @@ const AddCard = ({ addNewCard }) => {
                 <label htmlFor="nickname">Card Nickname</label>
                 <input
                   name="nickname"
-                  value={formData.card.nickname}
+                  value={card.nickname}
                   onChange={(e) => onChange(e)}
                 />
                 <label htmlFor="type">Card Type</label>
                 <select
-                  value={formData.card.type}
+                  value={card.type}
                   onChange={(e) => onChange(e)}
                 >
                   {cardTypes.map((type, index) => (
