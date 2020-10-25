@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./ViewSingleCard.scss";
 import img from "../../Images/Dashboard-Icon.png";
 import PropTypes from "prop-types";
@@ -9,15 +9,36 @@ import { searchCardById } from "../../actions/cards";
 const ViewSingleCard = ({ getCard }) => {
   const { id } = useParams();
 
+  const [amount, setAmount] = useState(0);
+
   useEffect(() => {
     getCard(id);
-  },[])
+  }, []);
+
+  setAmount = (e) => {
+    amount: e.target.value;
+  };
+
+  const DeleteCard = () => {};
+
+  const TopUpCard = () => {};
 
   return (
     <div className="main">
       <div className="rect">
         <div className="opal-heading">{id}</div>
-        
+        <div className="topup">
+          <label>
+            Top Up Amount:
+            <input type="text" value={amount} onChange={setAmount} />
+          </label>
+          <button onclick={TopUpCard}>Delete Card</button>
+        </div>
+        <div className="delete">
+          <button onclick={DeleteCard}>Delete Card</button>
+          <p>This is irreversible. </p>
+          <p>Do not click unless you are very sure.</p>
+        </div>
       </div>
     </div>
   );
@@ -27,11 +48,11 @@ const ViewSingleCard = ({ getCard }) => {
 
 ViewSingleCard.propTypes = {
   id: PropTypes.number,
-  getCard: PropTypes.func.isRequired
+  getCard: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({});
 
-export default connect(mapStateToProps, {getCard: searchCardById})(
-    ViewSingleCard
+export default connect(mapStateToProps, { getCard: searchCardById })(
+  ViewSingleCard
 );
