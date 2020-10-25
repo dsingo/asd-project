@@ -13,20 +13,20 @@ export default function AddCard(props) {
   const [balance, setBalance] = useState(0);
   const [history, setHistory] = useState("");
   const [type, setType] = useState("Adult");
+  const card = {
+    id: userID,
+    nickname: nickname,
+    balance: balance,
+    type: type,
+    history: history,
+  };
   const cardTypes = ["Adult", "Concession", "Child"];
 
-      const addCard = (e) => {
-        e.preventDefault();
-        const card = {
-          id: userID,
-          nickname: nickname,
-          balance: balance,
-          type: type,
-          history: history,
-        };
-        addNewCard(card);
-      };
+  const addCard = (e) => {
+    e.preventDefault();
 
+    addNewCard(card);
+  };
 
   return (
     <div className="main">
@@ -56,7 +56,6 @@ export default function AddCard(props) {
           </div>
 
           <button type="submit" className="btn" onClick={addCard}>
-
             Add New Card
           </button>
         </form>
