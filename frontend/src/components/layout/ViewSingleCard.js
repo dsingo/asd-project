@@ -39,7 +39,7 @@ const ViewSingleCard = ({ getCard }) => {
               onChange={(e) => onFormChange(e)}
             />
           </label>
-          <button onclick={TopUpCard}>Delete Card</button>
+          <button onclick={TopUpCard}>Top Up Card</button>
         </div>
         <div class="deletecard">
           <button onclick={DeleteCard}>Delete Card</button>
