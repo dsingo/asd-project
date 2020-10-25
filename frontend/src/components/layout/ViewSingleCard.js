@@ -5,27 +5,32 @@ import img from "../../Images/Dashboard-Icon.png";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { searchCardById, addToCard, deleteSelectedCard } from "../../actions/cards";
+import {
+  searchCardById,
+  addToCard,
+  deleteSelectedCard,
+} from "../../actions/cards";
 
 const ViewSingleCard = ({ getCard }) => {
-  const { id } = useParams();
+  const { receivedid } = useParams();
 
   const [formData, setFormData] = useState({
     amount: "",
+    id: receivedid,
   });
 
   useEffect(() => {
-    getCard(id);
+    getCard(receivedid);
   }, []);
 
-  const { amount } = formData;
+  const { amount, id } = formData;
 
   const onFormChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const DeleteCard = async (e) => {
     e.preventDefault();
-    deleteSelectedCard(id);
+    deleteSelectedCard({ id });
   };
 
   const TopUpCard = () => {};
