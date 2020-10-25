@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { viewUserCards } from "../../actions/cards";
@@ -17,10 +16,12 @@ const ViewCards = ({ cards, loadedCards, getCards, loading }) => {
   return (
     <div className="main">
       <div className="rect">
-        <h2 className="heading">Your Opal Cards</h2>
+        <h1 className="opal-heading">Your Opal Cards</h1>
         { loading && <p>Loading Cards...</p> }
         {cards.map(
-          (card, i) => <Link to={"/viewsinglecard/${card.id}"}><li key={i}>{card.name} - {card.type} - {card.balance}</li></Link>
+          (card, i) => <Link to={"/viewsinglecard/${card.id}"}>
+              <li className="cards" key={i}>{card.name} - {card.type} - {card.balance}</li>
+            </Link>
         )}
       </div>
     </div>
