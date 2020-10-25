@@ -9,22 +9,18 @@ import { addNewCard } from "../../actions/cards";
 
 export default function AddCard(props) {
   const [nickname, setNickname] = useState("");
-  const [userID, setUserID] = useState("xxxxxxxxxxxxxxxxxxxxxxxx");
-  const [balance, setBalance] = useState(0);
-  const [history, setHistory] = useState("");
-  const [type, setType] = useState("Adult");
-  const card = {
-    id: userID,
-    nickname: nickname,
-    balance: balance,
-    type: type,
-    history: history,
-  };
+  const [type, setType] = useState("Adult"); 
   const cardTypes = ["Adult", "Concession", "Child"];
 
   const addCard = (e) => {
     e.preventDefault();
-
+    const card = {
+      id: "x",
+      nickname: nickname,
+      balance: 0,
+      type: type,
+      history: [],
+    };
     addNewCard(card);
   };
 
