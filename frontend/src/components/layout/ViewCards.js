@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { viewUserCards } from "../../actions/cards";
-
+import { Link } from "react-router-dom";
 import "./ViewCards.scss";
 import { connect } from "react-redux";
 
@@ -20,7 +20,7 @@ const ViewCards = ({ cards, loadedCards, getCards, loading }) => {
         <h2 className="heading">Your Opal Cards</h2>
         { loading && <p>Loading Cards...</p> }
         {cards.map(
-          (card, i) => <li key={i}>{card.name} - {card.type} - {card.balance}</li>
+          (card, i) => <Link to={"/viewsinglecard/${card.id}"}><li key={i}>{card.name} - {card.type} - {card.balance}</li></Link>
         )}
       </div>
     </div>
