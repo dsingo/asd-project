@@ -9,15 +9,18 @@ import { searchCardById } from "../../actions/cards";
 const ViewSingleCard = ({ getCard }) => {
   const { id } = useParams();
 
-  const [amount, setAmount] = useState(0);
+  const [formData, setFormData] = useState({
+    amount: "",
+  });
 
   useEffect(() => {
     getCard(id);
   }, []);
 
-  setAmount = (e) => {
-    amount: e.target.value;
-  };
+  const { amount } = formData;
+
+  const onFormChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const DeleteCard = () => {};
 
@@ -30,7 +33,11 @@ const ViewSingleCard = ({ getCard }) => {
         <div className="topup">
           <label>
             Top Up Amount:
-            <input type="text" value={amount} onChange={setAmount} />
+            <input
+              type="text"
+              value={amount}
+              onChange={(e) => onFormChange(e)}
+            />
           </label>
           <button onclick={TopUpCard}>Delete Card</button>
         </div>
