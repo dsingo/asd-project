@@ -92,7 +92,7 @@
 .delete2 {
   position: absolute;
   top: 85%;
-  left: 47%;
+  left: 47.5%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   color: white;
@@ -119,7 +119,7 @@
 .delete2:active {
   background-color: #a8212f;
   box-shadow: 0 5px #666;
-  transform: translateY(4px);
+  //transform: translateY(4px);
 }
 
 // Main Container
@@ -149,6 +149,10 @@
     height: 55%;
     z-index: 99;
   }
+}
+
+.delete2:focus {
+  outline: none;
 }
 
 .topupcard {

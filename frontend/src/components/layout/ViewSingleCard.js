@@ -11,20 +11,20 @@ import {
 } from "../../actions/cards";
 
 const ViewSingleCard = ({ getCard }) => {
-  const { id } = useParams();
-
   const [formData, setFormData] = useState({
     amount: "",
   });
-
-  useEffect(() => {
-    getCard(id);
-  }, []);
 
   const { amount } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    getCard(id);
+  }, []);
 
   const DeleteCard = async (e) => {
     e.preventDefault();
@@ -33,7 +33,8 @@ const ViewSingleCard = ({ getCard }) => {
 
   const TopUpCard = (e) => {
     e.preventDefault();
-    addToCard(id, amount);
+    console.log(e);
+    //addToCard(id, amount);
   };
 
   return (
@@ -48,7 +49,7 @@ const ViewSingleCard = ({ getCard }) => {
                 <input
                   className="input input2"
                   type="number"
-                  name="number"
+                  name="topup"
                   placeholder="Please enter a top up amount"
                   value={amount}
                   onChange={(e) => onChange(e)}
@@ -62,8 +63,9 @@ const ViewSingleCard = ({ getCard }) => {
           </button>
         </form>
 
-        <button className="btn delete2" onclick={DeleteCard}>Delete Card</button>
-
+        <button className="delete2" onclick={DeleteCard}>
+          Delete Card
+        </button>
       </div>
     </div>
   );
