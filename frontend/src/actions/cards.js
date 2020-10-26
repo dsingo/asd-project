@@ -91,22 +91,11 @@ export const deleteSelectedCard = (id) => async (dispatch) => {
   const cardid = id;
   const params = new URLSearchParams({ cardid: id });
   params.set("cardid", id);
-  const url = "/cards/";
-  try {
-    const res = await axios.delete("/cards/", {
+  
+
+  axios
+    .delete("/cards/", {
       params: { cardid },
-    });
-    dispatch({
-      type: DELETED_CARD,
-      payload: res.data,
-    });
-  } catch (err) {
-    const errors = err.response.data.errors;
-    if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
-      dispatch({
-        type: FAILED_DELETE_CARD,
-      });
-    }
-  }
+    })
+    .then((data) => console.log(data));
 };
