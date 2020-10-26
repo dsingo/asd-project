@@ -34,10 +34,7 @@ router.get("/:cardid", auth, async (req, res) => {
 // DELETE CARD BY ID
 // @param cardid - uuid of card
 router.delete("/delete", auth, async (req, res) => {
-  var cardid = req.body.id;
-  Card.findOneAndDelete({ _id: cardid })
-    .then(() => res.status(200).json({ deleted: req.body.cardid }))
-    .catch((err) => res.status(501).json(err.message));
+  console.log("yes");
 });
 
 // PUT - UPDATE NICKNAME
@@ -62,12 +59,13 @@ router.put("/:cardid", auth, async (req, res) => {
 // @body {
 //  amount: number - amount you want to top up the card by
 // }
-router.put("/topup/:cardid", auth, async (req, res) => {
+router.put("/topup", auth, async (req, res) => {
   try {
-    const card = await Card.findOne({ id: req.params.cardid });
-    card.balance += req.body.amount;
-    card.save();
-    res.status(200).json(card);
+    console.log("yes")
+    // const card = await Card.findOne({ id: req.cardid });
+    // card.balance += req.body.amount;
+    // await card.save();
+    // res.status(200).json(card);
   } catch (err) {
     res.status(501).json(err.message);
   }

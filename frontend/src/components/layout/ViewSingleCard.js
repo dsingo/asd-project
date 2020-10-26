@@ -3,7 +3,7 @@ import "./ViewSingleCard.scss";
 import img from "../../Images/Card-Icon.png";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import {
   searchCardById,
   deleteSelectedCard,
@@ -12,7 +12,7 @@ import {
 import axios from "axios";
 
 const ViewSingleCard = ({ getCard, topUp }) => {
-  const history = useHistory();
+  //const history = useHistory();
 
   const [formData, setFormData] = useState({
     amount: "",
@@ -34,7 +34,6 @@ const ViewSingleCard = ({ getCard, topUp }) => {
 
   useEffect(() => {
     setLoading(true);
-    console.log("fetchin");
     const params = new URLSearchParams({ id: id });
     axios
       .get("/cards", { params })
@@ -45,16 +44,12 @@ const ViewSingleCard = ({ getCard, topUp }) => {
 
   const DeleteCard = async (e) => {
     e.preventDefault();
-    axios
-    .delete("/cards/delete", id)
-    .then((data) => console.log(data));
-    deleteSelectedCard(id);
+    deleteSelectedCard();
   };
 
-  const TopUpCard = (e) => {
+  const TopUpCard = async (e) => {
     e.preventDefault();
     topUp(id, amount);
-    history.push("/viewcards");
   };
 
   return (
@@ -89,7 +84,7 @@ const ViewSingleCard = ({ getCard, topUp }) => {
           </button>
         </form>
 
-        <button className="delete2" onClick={DeleteCard}>
+        <button type="submit" className="delete2" onClick={DeleteCard}>
           Delete Card
         </button>
       </div>

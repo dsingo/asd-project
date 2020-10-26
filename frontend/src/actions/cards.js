@@ -69,26 +69,18 @@ export const viewUserCardById = (id) => async (dispatch) => {
 };
 
 export const searchCardById = (id) => async (dispatch) => {
-  const res = await axios.get("/cards", { id });
+  await axios.get("/cards", { id });
 };
 
 export const topUpCard = (id, amount) => async (dispatch) => {
   const params = new URLSearchParams({ id: id });
   params.set("id", id);
-  console.log(id);
-  console.log(amount);
-  axios
-    .put(`/cards/topup/`, {
-      params: { id },
-      body: {
-        amount,
-      },
-    })
-    .then((data) => console.log(data));
+  await axios.put("/cards/topup", {
+    id: id,
+    amount: amount,
+  });
 };
 
-export const deleteSelectedCard = (id) => async (dispatch) => {
-  axios
-    .delete("/cards/delete", id)
-    .then((data) => console.log(data));
+export const deleteSelectedCard = () => async (dispatch) => {
+  await axios.delete("/cards/delete");
 };
