@@ -61,15 +61,14 @@ const ViewSingleCard = ({ getCard, topUp }) => {
     <div className="main">
       <div className="rect">
         <form className="base-rect" onSubmit={(e) => TopUpCard(e)}>
-          <div className="settings heading">Opal Card Settings</div>
           <img className="opalcard" src={img} alt="Colourful email icon" />
           <div className="content">
             <div className="form">
               <div className="form-group">
                 {loading ? (
-                  <h3>loading...</h3>
+                  <h3 className="settings heading">loading...</h3>
                 ) : (
-                  <h3>
+                  <h3 className="settings heading">
                     {name} - ${balance} - {type}
                   </h3>
                 )}

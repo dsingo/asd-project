@@ -26,10 +26,6 @@
         width: fit-content;
         height: fit-content;
 
-        h3 {
-          height:2rem;
-        }
-
         .input {
           min-width: 18em;
           height: 37px;
@@ -69,6 +65,9 @@
 .settings {
   top: 5%;
   position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .opalcard {
