@@ -48,7 +48,7 @@ const ViewSingleCard = ({ getCard, topUp }) => {
     axios
     .delete("/cards/delete", id)
     .then((data) => console.log(data));
-    //deleteSelectedCard(id);
+    deleteSelectedCard(id);
   };
 
   const TopUpCard = (e) => {

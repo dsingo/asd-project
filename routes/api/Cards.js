@@ -35,8 +35,8 @@ router.get("/:cardid", auth, async (req, res) => {
 // @param cardid - uuid of card
 router.delete("/delete", auth, async (req, res) => {
   var cardid = req.body.id;
-  Card.findOneAndDelete({ id: cardid })
-    .then(() => res.status(200).json({ deleted: req.params.cardid }))
+  Card.findOneAndDelete({ _id: cardid })
+    .then(() => res.status(200).json({ deleted: req.body.cardid }))
     .catch((err) => res.status(501).json(err.message));
 });
 
