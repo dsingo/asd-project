@@ -75,7 +75,7 @@ const ViewSingleCard = ({ getCard, topUp }) => {
                 )}
                 <input
                   className="input input2"
-                  type="number"
+                  type="string"
                   name="amount"
                   placeholder="Please enter a top up amount"
                   value={amount}
