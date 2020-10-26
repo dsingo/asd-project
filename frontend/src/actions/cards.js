@@ -89,7 +89,7 @@ export const topUpCard = (id, amount) => async (dispatch) => {
 
 export const deleteSelectedCard = (id) => async (dispatch) => {
   const params = new URLSearchParams({cardid: id})
-  const url = "/" + id;
+  const url = "/";
   try {
     const res = await axios.delete(url, params);
     dispatch({

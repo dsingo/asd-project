@@ -7,12 +7,11 @@ import { Link, useParams, useHistory } from "react-router-dom";
 import {
   searchCardById,
   deleteSelectedCard,
-  topUpCard
+  topUpCard,
 } from "../../actions/cards";
 import axios from "axios";
 
 const ViewSingleCard = ({ getCard, topUp }) => {
-
   const history = useHistory();
 
   const [formData, setFormData] = useState({
@@ -26,24 +25,22 @@ const ViewSingleCard = ({ getCard, topUp }) => {
 
   const { id } = useParams();
 
-  const [{name, balance, type}, setCard] = useState({
+  const [{ name, balance, type }, setCard] = useState({
     name: "",
     balance: "",
-    type: ""
+    type: "",
   });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true)
-    console.log('fetchin')
-    const params = new URLSearchParams({"id":id});
-    axios.get("/cards", { params }).then(
-      ({ data }) => setCard(data[0])
-    ).catch(
-      err => console.log(err)
-    ).then(
-      () => setLoading(false)
-    );
+    setLoading(true);
+    console.log("fetchin");
+    const params = new URLSearchParams({ id: id });
+    axios
+      .get("/cards", { params })
+      .then(({ data }) => setCard(data[0]))
+      .catch((err) => console.log(err))
+      .then(() => setLoading(false));
   }, [id]);
 
   const DeleteCard = async (e) => {
@@ -54,7 +51,7 @@ const ViewSingleCard = ({ getCard, topUp }) => {
   const TopUpCard = (e) => {
     e.preventDefault();
     topUp(id, amount);
-    history.push('/viewcards');
+    history.push("/viewcards");
   };
 
   return (
@@ -66,10 +63,13 @@ const ViewSingleCard = ({ getCard, topUp }) => {
           <div className="content">
             <div className="form">
               <div className="form-group">
-                { loading ?
-                  <h3>loading...</h3> :
-                  <h3>{ name } - ${ balance } - { type }</h3>
-                }
+                {loading ? (
+                  <h3>loading...</h3>
+                ) : (
+                  <h3>
+                    {name} - ${balance} - {type}
+                  </h3>
+                )}
                 <input
                   className="input input2"
                   type="number"
@@ -104,6 +104,7 @@ ViewSingleCard.propTypes = {
 
 const mapStateToProps = (state) => ({});
 
-export default connect(mapStateToProps, { getCard: searchCardById, topUp: topUpCard })(
-  ViewSingleCard
-);
+export default connect(mapStateToProps, {
+  getCard: searchCardById,
+  topUp: topUpCard,
+})(ViewSingleCard);
