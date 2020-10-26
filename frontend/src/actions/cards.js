@@ -88,11 +88,7 @@ export const topUpCard = (id, amount) => async (dispatch) => {
 };
 
 export const deleteSelectedCard = (id) => async (dispatch) => {
-  const card = {
-    cardid: id
-  }
   axios
-    .delete("/cards/delete", card)
-     
+    .delete("/cards/delete", id)
     .then((data) => console.log(data));
 };

@@ -45,7 +45,10 @@ const ViewSingleCard = ({ getCard, topUp }) => {
 
   const DeleteCard = async (e) => {
     e.preventDefault();
-    deleteSelectedCard(id);
+    axios
+    .delete("/cards/delete", id)
+    .then((data) => console.log(data));
+    //deleteSelectedCard(id);
   };
 
   const TopUpCard = (e) => {
