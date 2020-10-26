@@ -63,7 +63,7 @@ export const viewUserCards = () => async (dispatch) => {
 };
 
 export const viewUserCardById = (id) => async (dispatch) => {
-  const params = new URLSearchParams(["id", id]);
+  const params = new URLSearchParams({"id": id});
 
   const res = await axios.get("/cards", { params });
 };
@@ -72,7 +72,20 @@ export const searchCardById = (id) => async (dispatch) => {
   const res = await axios.get("/cards", { id });
 };
 
-export const addToCard = (id, amount) => async (dispatch) => {};
+export const topUpCard = (id, amount) => async (dispatch) => {
+  const params = new URLSearchParams({"id": id});
+  params.set("id",id)
+  console.log(id)
+  console.log(amount)
+  axios.put(`/cards/topup/`, {
+    params: {id},
+    body: {
+      amount
+    }
+  }).then(
+    data => console.log(data)
+  )
+};
 
 export const deleteSelectedCard = (id) => async (dispatch) => {
   const params = new URLSearchParams({cardid: id})

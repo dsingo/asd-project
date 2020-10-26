@@ -34,7 +34,7 @@ ViewCards.propTypes = {
   cards: PropTypes.array,
   getCards: PropTypes.func.isRequired,
   loading: PropTypes.bool,
-  loadedCards: true
+  loadedCards: PropTypes.bool
 };
 
 

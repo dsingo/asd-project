@@ -28,7 +28,7 @@ const Dashboard = ({ deleteAccount }) => {
         View Cards
       </Link>
       <button className="delete" type="button" onClick={() => deleteAccount()}>
-        <i class="fas fa-trash-alt"></i> Delete Account
+        <i className="fas fa-trash-alt"></i> Delete Account
       </button>
     </div>
   );

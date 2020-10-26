@@ -3,14 +3,18 @@ import "./ViewSingleCard.scss";
 import img from "../../Images/Card-Icon.png";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 import {
   searchCardById,
-  addToCard,
   deleteSelectedCard,
+  topUpCard
 } from "../../actions/cards";
+import axios from "axios";
 
-const ViewSingleCard = ({ getCard }) => {
+const ViewSingleCard = ({ getCard, topUp }) => {
+
+  const history = useHistory();
+
   const [formData, setFormData] = useState({
     amount: "",
   });
@@ -22,9 +26,25 @@ const ViewSingleCard = ({ getCard }) => {
 
   const { id } = useParams();
 
-  useEffect(() => {
-    getCard(id);
+  const [{name, balance, type}, setCard] = useState({
+    name: "",
+    balance: "",
+    type: ""
   });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true)
+    console.log('fetchin')
+    const params = new URLSearchParams({"id":id});
+    axios.get("/cards", { params }).then(
+      ({ data }) => setCard(data[0])
+    ).catch(
+      err => console.log(err)
+    ).then(
+      () => setLoading(false)
+    );
+  }, [id]);
 
   const DeleteCard = async (e) => {
     e.preventDefault();
@@ -33,7 +53,8 @@ const ViewSingleCard = ({ getCard }) => {
 
   const TopUpCard = (e) => {
     e.preventDefault();
-    addToCard(id, amount);
+    topUp(id, amount);
+    history.push('/viewcards');
   };
 
   return (
@@ -45,10 +66,14 @@ const ViewSingleCard = ({ getCard }) => {
           <div className="content">
             <div className="form">
               <div className="form-group">
+                { loading ?
+                  <h3>loading...</h3> :
+                  <h3>{ name } - ${ balance } - { type }</h3>
+                }
                 <input
                   className="input input2"
                   type="number"
-                  name="topup"
+                  name="amount"
                   placeholder="Please enter a top up amount"
                   value={amount}
                   onChange={(e) => onChange(e)}
@@ -57,12 +82,12 @@ const ViewSingleCard = ({ getCard }) => {
               </div>
             </div>
           </div>
-          <button type="submit" className="btn submit">
+          <button type="submit" className="btn submit" onClick={TopUpCard}>
             Top Up
           </button>
         </form>
 
-        <button className="delete2" onclick={DeleteCard}>
+        <button className="delete2" onClick={DeleteCard}>
           Delete Card
         </button>
       </div>
@@ -79,6 +104,6 @@ ViewSingleCard.propTypes = {
 
 const mapStateToProps = (state) => ({});
 
-export default connect(mapStateToProps, { getCard: searchCardById })(
+export default connect(mapStateToProps, { getCard: searchCardById, topUp: topUpCard })(
   ViewSingleCard
 );
