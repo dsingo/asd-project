@@ -48,7 +48,7 @@ const ViewSingleCard = ({ getCard, topUp }) => {
     axios
     .delete("/cards/delete", id)
     .then((data) => console.log(data));
-    //deleteSelectedCard(id);
+    deleteSelectedCard(id);
   };
 
   const TopUpCard = (e) => {
@@ -85,7 +85,7 @@ const ViewSingleCard = ({ getCard, topUp }) => {
               </div>
             </div>
           </div>
-          <button type="submit" className="btn submit" onClick={TopUpCard}>
+          <button type="button" className="btn submit" onClick={TopUpCard}>
             Top Up
           </button>
         </form>
