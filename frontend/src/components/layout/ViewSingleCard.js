@@ -85,7 +85,7 @@ const ViewSingleCard = ({ getCard, topUp }) => {
               </div>
             </div>
           </div>
-          <button type="submit" className="btn submit" onClick={TopUpCard}>
+          <button type="button" className="btn submit" onClick={TopUpCard}>
             Top Up
           </button>
         </form>
