@@ -88,14 +88,11 @@ export const topUpCard = (id, amount) => async (dispatch) => {
 };
 
 export const deleteSelectedCard = (id) => async (dispatch) => {
-  const cardid = id;
-  const params = new URLSearchParams({ cardid: id });
-  params.set("cardid", id);
-  
-
+  const card = {
+    cardid: id
+  }
   axios
-    .delete("/cards/", {
-      params: { cardid },
-    })
+    .delete("/cards/delete", card)
+     
     .then((data) => console.log(data));
 };
