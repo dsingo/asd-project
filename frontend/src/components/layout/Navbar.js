@@ -10,13 +10,13 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <ul>
       <li>
         <Link to="/dashboard" >
-          <i class="far fa-user-circle"></i> Dashboard
+          <i className="far fa-user-circle"></i> Dashboard
         </Link>
         <Link to="/faq" >
-          <i class="far fa-question-circle"></i> FAQ
+          <i className="far fa-question-circle"></i> FAQ
         </Link>
         <Link to="/contactus" >
-          <i class="far fa-id-card"></i> Contact Us
+          <i className="far fa-id-card"></i> Contact Us
         </Link>
         <Link to="/login" onClick={logout}>
           <i className="fas fa-sign-out-alt"></i> Logout
@@ -29,13 +29,13 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <ul>
       <li>
         <Link to="/faq" >
-          <i class="far fa-question-circle"></i> FAQ
+          <i className="far fa-question-circle"></i> FAQ
         </Link>
         <Link to="/contactus" >
-          <i class="far fa-id-card"></i> Contact Us
+          <i className="far fa-id-card"></i> Contact Us
         </Link>
         <Link to="/login">
-          <i class="fas fa-sign-in-alt"></i> Login/Register
+          <i className="fas fa-sign-in-alt"></i> Login/Register
         </Link>
       </li>
     </ul>
