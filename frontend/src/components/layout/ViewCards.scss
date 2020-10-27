@@ -4,11 +4,6 @@
     flex-direction: column;
     align-items: center;
   
-    .heading {
-      font-size: 24px;
-      font-family: "Open Sans", sans-serif;
-    }
-  
     .content {
       display: flex;
       flex-direction: column;
@@ -60,16 +55,27 @@
       height: 175px;
       width: 175px;
   }
+
+  .opal-heading {
+    top: 10%;
+    font-size: 25px;
+    font-family: "Open Sans", sans-serif;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+
   
   // Main Container
   .main {
       width: 27em;
-      height: 44em;
+      height: auto;
       display: flex;
       justify-content: center;
       align-items: center;
       position: absolute;
-      top: 45%;
       z-index: 99;
       left: 50%;
       -ms-transform: translate(-50%, -50%);
@@ -85,7 +91,7 @@
         position: relative;
         z-index: 99;
         width: 100%;
-        height: 55%;
+        height: auto;
         z-index: 99;
       }
   }

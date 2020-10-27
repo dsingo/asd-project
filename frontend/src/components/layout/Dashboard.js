@@ -21,17 +21,17 @@ const Dashboard = ({ deleteAccount }) => {
       <Link to="/editpassword" className="button bt2" type="button">
         Change Password
       </Link>
-      <Link to="/addcard" className="button bt3" type="button">
-        Add Card
-      </Link>
-      <Link to="/viewcards" className="button bt4" type="button">
-        View Cards
-      </Link>
-      <Link to="/trips" className="button bt5" type="button">
+      <Link to="/trips" className="button bt3" type="button">
         Trip History
       </Link>
+      <Link to="/addcard" className="button bt4" type="button">
+        Add Card
+      </Link>
+      <Link to="/viewcards" className="button bt5" type="button">
+        View Cards
+      </Link>
       <button className="delete" type="button" onClick={() => deleteAccount()}>
-        <i class="fas fa-trash-alt"></i> Delete Account
+        <i className="fas fa-trash-alt"></i> Delete Account
       </button>
     </div>
   );

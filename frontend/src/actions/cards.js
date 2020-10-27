@@ -1,5 +1,15 @@
 import axios from "axios";
-import { ADDED_CARD, FAILED_ADD_CARD } from "./types";
+import {
+  ADD_CARD,
+  FAILED_ADD_CARD,
+  FAILED_ADD_CARDS,
+  USER_LOADED,
+  AUTH_ERROR,
+  LOADING_CARDS,
+  ADD_CARDS,
+  DELETED_CARD,
+  FAILED_DELETE_CARD,
+} from "./types";
 import { setAlert } from "./alert";
 import setAuthToken from "../utils/setAuthToken";
 
@@ -23,27 +33,54 @@ export const loadUser = () => async (dispatch) => {
   }
 };
 export const addNewCard = (card) => async (dispatch) => {
-  try {
-    await axios.post("/cards", { card });
-
-    //dispatch({ type: ADDED_CARD, payload: card });
-
-    console.log("success");
-  } catch (err) {
-    //dispatch({
-    //type: FAILED_ADD_CARD,
-    //payload: { msg: err.response.statusText, status: err.response.status },
-    //});
-    console.log("not success");
-  }
+  axios
+    .post("/cards", card)
+    .then((res) => {
+      dispatch({ type: ADD_CARD, payload: card });
+      dispatch(setAlert("This card has been added successfully.", "success"));
+    })
+    .catch((err) => {
+      dispatch({
+        type: FAILED_ADD_CARD,
+        payload: { msg: err.response.statusText, status: err.response.status },
+      });
+    });
 };
 
-export const viewUserCards = (id) => async (dispatch) => {
-  //const params = new URLSearchParams(["id", id]);
-
-  //const res = await axios.get("/cards", { params });
+export const viewUserCards = () => async (dispatch) => {
+  dispatch({ type: LOADING_CARDS });
+  axios
+    .get("/cards")
+    .then((payload) => {
+      dispatch({ type: ADD_CARDS, cards: payload.data });
+    })
+    .catch((err) => {
+      dispatch({
+        type: FAILED_ADD_CARDS,
+        payload: { msg: err.response.statusText, status: err.response.status },
+      });
+    });
 };
 
-export const addToCard = (id) => async (dispatch) => {};
+export const viewUserCardById = (id) => async (dispatch) => {
+  const params = new URLSearchParams({ id: id });
 
-export const deleteSelectedCard = (id) => async (dispatch) => {};
+  const res = await axios.get("/cards", { params });
+};
+
+export const searchCardById = (id) => async (dispatch) => {
+  await axios.get("/cards", { id });
+};
+
+export const topUpCard = (id, amount) => async (dispatch) => {
+  const params = new URLSearchParams({ id: id });
+  params.set("id", id);
+  await axios.put("/cards/topup", {
+    id: id,
+    amount: amount,
+  });
+};
+
+export const deleteSelectedCard = () => async (dispatch) => {
+  await axios.delete("/cards/delete");
+};

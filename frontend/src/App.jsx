@@ -16,8 +16,9 @@ import Contact from './components/layout/Contact';
 import TripHistory from './components/layout/TripHistory';
 import AddCard from "./components/layout/AddCard";
 import ViewCards from "./components/layout/ViewCards";
-import TopUpCard from "./components/layout/TopUpCard";
-import DeleteCard from "./components/layout/DeleteCard";
+//import TopUpCard from "./components/layout/TopUpCard";
+//import DeleteCard from "./components/layout/DeleteCard";
+import ViewSingleCard from "./components/layout/ViewSingleCard"
 
 //Redux
 import { Provider } from "react-redux";
@@ -50,8 +51,7 @@ const App = () => {
               <PrivateRoute exact path="/trips" component={TripHistory} />
               <PrivateRoute exact path="/addcard" component={AddCard} />
               <PrivateRoute exact path="/viewcards" component={ViewCards} />
-              {/*<PrivateRoute exact path="/deletecard" component={DeleteCard} /> */}
-              {/*<PrivateRoute exact path="/topupcard" component={TopUpCard} /> */}
+              <PrivateRoute path="/viewsinglecard/:id" component={ViewSingleCard} />
               <Route exact path="/faq" component={FAQ} />
               <Route exact path="/contactus" component={Contact} />
             </Switch>
