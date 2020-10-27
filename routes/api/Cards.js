@@ -81,7 +81,11 @@ router.put('/topup/:cardid', auth, async (req, res) => {
 router.post('/', auth, async (req, res) => {
   try {
 
-    const { name, type } = req.body;
+    const data = req.body;
+
+    const type = data.type;
+
+    const name = data.nickname;
 
     assert(['Adult','Concession','Child'].includes(type), 'Invalid card type')
 

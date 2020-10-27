@@ -24,7 +24,10 @@ const Dashboard = ({ deleteAccount }) => {
       <Link to="/addcard" className="button bt3" type="button">
         Add Card
       </Link>
-      <Link to="/trips" className="button bt4" type="button">
+      <Link to="/viewcards" className="button bt4" type="button">
+        View Cards
+      </Link>
+      <Link to="/trips" className="button bt5" type="button">
         Trip History
       </Link>
       <button className="delete" type="button" onClick={() => deleteAccount()}>

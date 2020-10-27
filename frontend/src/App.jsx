@@ -14,6 +14,10 @@ import EditPassword from './components/layout/EditPassword';
 import FAQ from './components/layout/FAQ';
 import Contact from './components/layout/Contact';
 import TripHistory from './components/layout/TripHistory';
+import AddCard from "./components/layout/AddCard";
+import ViewCards from "./components/layout/ViewCards";
+import TopUpCard from "./components/layout/TopUpCard";
+import DeleteCard from "./components/layout/DeleteCard";
 
 //Redux
 import { Provider } from "react-redux";
@@ -22,6 +26,8 @@ import store from "./store";
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
+
+//
 
 const App = () => {
   useEffect(() => {
@@ -42,6 +48,10 @@ const App = () => {
               <PrivateRoute exact path="/editemail" component={EditEmail} />
               <PrivateRoute exact path="/editpassword" component={EditPassword} />
               <PrivateRoute exact path="/trips" component={TripHistory} />
+              <PrivateRoute exact path="/addcard" component={AddCard} />
+              <PrivateRoute exact path="/viewcards" component={ViewCards} />
+              {/*<PrivateRoute exact path="/deletecard" component={DeleteCard} /> */}
+              {/*<PrivateRoute exact path="/topupcard" component={TopUpCard} /> */}
               <Route exact path="/faq" component={FAQ} />
               <Route exact path="/contactus" component={Contact} />
             </Switch>
