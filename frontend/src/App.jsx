@@ -6,17 +6,19 @@ import Home from "./components/layout/Home.jsx";
 import Landing from "./components/layout/Landing";
 import Alert from "./components/layout/alert";
 import { loadUser } from "./actions/auth";
-import setAuthToken from "./utils/setAuthToken";
-import Dashboard from "./components/layout/Dashboard";
-import PrivateRoute from "./components/routing/PrivateRoute";
-import EditEmail from "./components/layout/EditEmail";
-import EditPassword from "./components/layout/EditPassword";
+import setAuthToken from './utils/setAuthToken';
+import Dashboard from './components/layout/Dashboard';
+import PrivateRoute from './components/routing/PrivateRoute';
+import EditEmail from './components/layout/EditEmail';
+import EditPassword from './components/layout/EditPassword';
+import FAQ from './components/layout/FAQ';
+import Contact from './components/layout/Contact';
+import TripHistory from './components/layout/TripHistory';
 import AddCard from "./components/layout/AddCard";
 import ViewCards from "./components/layout/ViewCards";
+//import TopUpCard from "./components/layout/TopUpCard";
+//import DeleteCard from "./components/layout/DeleteCard";
 import ViewSingleCard from "./components/layout/ViewSingleCard"
-
-import FAQ from "./components/layout/FAQ";
-import Contact from "./components/layout/Contact";
 
 //Redux
 import { Provider } from "react-redux";
@@ -45,11 +47,8 @@ const App = () => {
               <Route exact path="/login" component={Landing} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/editemail" component={EditEmail} />
-              <PrivateRoute
-                exact
-                path="/editpassword"
-                component={EditPassword}
-              />
+              <PrivateRoute exact path="/editpassword" component={EditPassword} />
+              <PrivateRoute exact path="/trips" component={TripHistory} />
               <PrivateRoute exact path="/addcard" component={AddCard} />
               <PrivateRoute exact path="/viewcards" component={ViewCards} />
               <PrivateRoute path="/viewsinglecard/:id" component={ViewSingleCard} />

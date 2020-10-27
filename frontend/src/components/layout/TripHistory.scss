@@ -1,0 +1,31 @@
+.trip-container {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 0;
+    flex-basis: 0;
+    width: 880px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.trip-container > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trip-start, .trip-end {
+    flex: 1;
+}
+
+
+.trip-history-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 60px auto 0 auto;
+}
+
+.travel-method-icon {
+    width: 28px;
+}
